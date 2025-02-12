@@ -1,57 +1,73 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
+	import { enhance } from '$app/forms';
+	import type { ActionResult } from '@sveltejs/kit';
+	import MessageBubble from '$lib/components/chat/MessageBubble.svelte';
+
+	let { form } = $props();
+	let currentMessage = $state('');
+	let messagesContainer: HTMLDivElement;
+	let isSending = $state(false);
 
 	// Store para mensajes
-	const messages = writable([
+	interface Message {
+		type: 'bot' | 'user';
+		content: string;
+	}
+
+	const messages = writable<Message[]>([
 		{
 			type: 'bot',
 			content: '¡Bienvenido al asistente legal de Peralta Asociados! ¿En qué puedo ayudarte hoy?'
 		}
 	]);
 
-	let currentMessage = $state('');
-	let messagesContainer: HTMLDivElement;
-
-	// Manejo simple del envío de mensajes
-	function handleSubmit(event: Event) {
-		event.preventDefault();
-		if (!currentMessage.trim()) return;
-
-		// Añadir mensaje del usuario
-		$messages = [...$messages, { type: 'user', content: currentMessage }];
-
-		// Respuesta simulada del bot
-		setTimeout(() => {
-			$messages = [
-				...$messages,
-				{
-					type: 'bot',
-					content: 'Gracias por tu consulta. En breve te responderé.'
-				}
-			];
-		}, 300);
-
-		// Limpiar input
-		currentMessage = '';
-	}
-
-	function getArticleClasses(type: string) {
-		return type === 'user' ? 'ml-auto' : '';
-	}
-
-	function getBubbleClasses(type: string) {
-		return type === 'user'
-			? 'rounded-tr-sm bg-blue-600 text-white'
-			: 'rounded-tl-sm bg-white text-blue-900';
-	}
-
-	// Scroll automático simple
 	$effect(() => {
-		if (messagesContainer && $messages.length > 0) {
-			const lastMessage = messagesContainer.querySelector('.message:last-child');
-			lastMessage?.scrollIntoView({ behavior: 'smooth' });
+		if (messagesContainer && $messages) {
+			requestAnimationFrame(() => {
+				messagesContainer.scrollTo({
+					top: messagesContainer.scrollHeight,
+					behavior: 'smooth'
+				});
+			});
 		}
 	});
+
+	const handleSending = () => {
+		messages.update((prev) => [
+			...prev,
+			{
+				type: 'user',
+				content: currentMessage
+			}
+		]);
+
+		isSending = true;
+
+		return async ({ update, result }: { update: () => Promise<void>; result: ActionResult }) => {
+			await update();
+
+			if (result.type === 'success') {
+				messages.update((prev) => [
+					...prev,
+					{
+						type: 'bot',
+						content: result.data?.response
+					}
+				]);
+			} else {
+				messages.update((prev) => [
+					...prev,
+					{
+						type: 'bot',
+						content: '¡Vaya! Algo salió mal. Por favor, inténtalo de nuevo.'
+					}
+				]);
+			}
+
+			isSending = false;
+		};
+	};
 </script>
 
 <section class="relative mx-auto flex h-[calc(100vh-10rem)] max-w-3xl flex-col">
@@ -61,24 +77,26 @@
 		role="log"
 		aria-live="polite"
 	>
-		<div class="relative z-20 space-y-4">
-			{#each $messages as message}
-				<article class="max-w-[60%] {getArticleClasses(message.type)} message">
-					<div
-						class="rounded-2xl border border-blue-100 p-4 shadow-sm {getBubbleClasses(
-							message.type
-						)}"
-					>
-						<p>{message.content}</p>
-					</div>
-				</article>
-			{/each}
-		</div>
+		{#each $messages as message}
+			<MessageBubble type={message.type} content={message.content} />
+		{/each}
+
+		{#if isSending}
+			<div class="text-primary flex items-center justify-center p-4">
+				<span>Enviando consulta...</span>
+			</div>
+		{/if}
 	</div>
 
-	<form class="mt-4 flex-shrink-0" onsubmit={handleSubmit}>
+	<!-- Mensaje de error si la acción retorna un error -->
+	{#if form?.error}
+		<p class="error text-secondary p-2">{form.error}</p>
+	{/if}
+
+	<form method="POST" action="?/ask" use:enhance={handleSending} class="mt-4 flex-shrink-0">
 		<div class="relative">
 			<textarea
+				name="message"
 				bind:value={currentMessage}
 				class="w-full resize-none rounded-xl border border-blue-200 bg-white p-4 pr-16 shadow-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 focus:outline-none"
 				aria-label="Escribe tu mensaje"
