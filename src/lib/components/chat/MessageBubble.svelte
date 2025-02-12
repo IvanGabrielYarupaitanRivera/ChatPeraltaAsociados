@@ -17,17 +17,13 @@
 		class="border-opacity-10 rounded-2xl border p-4 shadow-lg transition-all duration-200 hover:shadow-xl
       {bubbleClasses}"
 	>
-		<p class="prose prose-sm text-sm" class:prose-invert={isUser}>
+		<p class="text-sm" class:prose-invert={isUser}>
 			{@html parsedContent}
 		</p>
 	</div>
 </article>
 
 <style>
-	:global(.prose strong) {
-		font-weight: bold;
-	}
-
 	:global(.prose-invert strong) {
 		color: white;
 	}
