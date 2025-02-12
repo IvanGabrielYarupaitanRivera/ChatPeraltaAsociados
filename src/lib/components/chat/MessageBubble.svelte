@@ -12,7 +12,7 @@
 	);
 </script>
 
-<article class="mb-4 max-w-[60%] {isUser ? 'ml-auto' : 'mr-auto'}">
+<article class="mb-4 {isUser ? 'ml-auto max-w-[60%]' : 'mr-auto max-w-[100%]'}">
 	<div
 		class="border-opacity-10 rounded-2xl border p-4 shadow-lg transition-all duration-200 hover:shadow-xl
       {bubbleClasses}"
