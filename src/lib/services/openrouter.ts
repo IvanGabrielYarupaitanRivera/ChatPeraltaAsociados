@@ -17,11 +17,12 @@ export async function getOpenRouterResponse(
 				'X-Title': 'Asistente Legal Inteligente de Peralta Asociados'
 			},
 			body: JSON.stringify({
-				model: 'deepseek/deepseek-r1:free',
+				model: 'google/gemini-2.0-pro-exp-02-05:free',
 				messages,
 				stream: false,
 				temperature: 0.7,
-				max_tokens: 300
+				max_tokens: 500,
+				repetition_penalty: 1
 			})
 		});
 
