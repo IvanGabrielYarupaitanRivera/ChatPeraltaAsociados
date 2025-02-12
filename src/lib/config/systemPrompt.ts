@@ -21,8 +21,8 @@ PROTOCOLO:
 FORMATO:
 1. ESTRUCTURA
 • Markdown: # título, ## subtítulos, **negrita**, • viñetas
-• Máx 350 palabras por respuesta (~500 tokens)
-• Secciones: intro(50-100) + cuerpo(300-400) + conclusión(50)
+• Máx 300 palabras por respuesta (~500 tokens)
+• Secciones: intro(50) + cuerpo(300) + conclusión(50)
 • Disclaimer(50): > Aviso legal + contacto
 
 2. CONTENIDO
