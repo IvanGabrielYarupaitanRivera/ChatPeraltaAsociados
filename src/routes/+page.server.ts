@@ -2,41 +2,25 @@ import { fail } from '@sveltejs/kit';
 import { chatHistory } from '$lib/stores/chatStore';
 import { getOpenRouterResponse } from '$lib/services/openrouter';
 import type { Actions } from './$types';
-
-interface ChatMessage {
-	role: 'system' | 'user' | 'assistant';
-	content: string;
-}
+import { get } from 'svelte/store';
 
 export const actions = {
 	ask: async ({ request }) => {
 		const data = await request.formData();
 		const message = data.get('message') as string;
-		let currentHistory: ChatMessage[] = [];
 
-		// Validación simple del mensaje
-		if (!message || typeof message !== 'string' || message.trim() === '') {
+		if (!message?.trim()) {
 			return fail(422, { error: 'El mensaje es obligatorio.' });
 		}
 
 		try {
-			// Obtener historial actual
-			chatHistory.subscribe((value) => {
-				currentHistory = value;
-			})();
+			const response = await getOpenRouterResponse(message, get(chatHistory));
 
-			// Agregar mensaje del usuario al historial
-			const userMessage: ChatMessage = { role: 'user', content: message };
-			currentHistory = [...currentHistory, userMessage];
-			chatHistory.set(currentHistory);
-
-			// Obtener respuesta con el historial actualizado
-			const response = await getOpenRouterResponse(message, currentHistory);
-
-			// Agregar respuesta del bot al historial
-			const botMessage: ChatMessage = { role: 'assistant', content: response };
-			currentHistory = [...currentHistory, botMessage];
-			chatHistory.set(currentHistory);
+			chatHistory.update((msgs) => [
+				...msgs.slice(-9), // Mantener últimos 9 para agregar 2 nuevos
+				{ role: 'user', content: message },
+				{ role: 'assistant', content: response }
+			]);
 
 			return { response };
 		} catch (error) {
