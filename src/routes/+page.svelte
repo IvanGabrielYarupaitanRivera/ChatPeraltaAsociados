@@ -29,10 +29,20 @@
 					content: 'Gracias por tu consulta. En breve te responderé.'
 				}
 			];
-		}, 1000);
+		}, 300);
 
 		// Limpiar input
 		currentMessage = '';
+	}
+
+	function getArticleClasses(type: string) {
+		return type === 'user' ? 'ml-auto' : '';
+	}
+
+	function getBubbleClasses(type: string) {
+		return type === 'user'
+			? 'rounded-tr-sm bg-blue-600 text-white'
+			: 'rounded-tl-sm bg-white text-blue-900';
 	}
 
 	// Scroll automático simple
@@ -44,34 +54,30 @@
 	});
 </script>
 
-<section class="mx-auto flex h-[calc(100vh-10rem)] w-full max-w-3xl flex-col">
+<section class="relative mx-auto flex h-[calc(100vh-10rem)] max-w-3xl flex-col">
 	<div
 		bind:this={messagesContainer}
-		class="messages-container relative min-h-0 flex-1 overflow-y-auto rounded-lg border border-blue-100 bg-gradient-to-b from-white via-blue-50 to-blue-100 p-4 shadow-lg backdrop-blur-sm"
+		class="messages-container flex-1 overflow-y-auto rounded-lg bg-blue-200 p-4 shadow-lg"
 		role="log"
 		aria-live="polite"
 	>
-		<div class="relative z-10 space-y-4">
+		<div class="relative z-20 space-y-4">
 			{#each $messages as message}
-				<article
-					class="message {message.type}-message {message.type === 'user'
-						? 'ml-auto'
-						: ''} max-w-[80%]"
-				>
+				<article class="max-w-[60%] {getArticleClasses(message.type)} message">
 					<div
-						class="rounded-2xl {message.type === 'user'
-							? 'rounded-tr-sm bg-blue-600 text-white'
-							: 'rounded-tl-sm bg-white'} border border-blue-100 p-4 shadow-sm"
+						class="rounded-2xl border border-blue-100 p-4 shadow-sm {getBubbleClasses(
+							message.type
+						)}"
 					>
-						<p class={message.type === 'bot' ? 'text-blue-900' : ''}>{message.content}</p>
+						<p>{message.content}</p>
 					</div>
 				</article>
 			{/each}
 		</div>
 	</div>
 
-	<form class="chat-input-form mt-4 flex-shrink-0" onsubmit={handleSubmit}>
-		<div class="input-container relative">
+	<form class="mt-4 flex-shrink-0" onsubmit={handleSubmit}>
+		<div class="relative">
 			<textarea
 				bind:value={currentMessage}
 				class="w-full resize-none rounded-xl border border-blue-200 bg-white p-4 pr-16 shadow-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 focus:outline-none"
