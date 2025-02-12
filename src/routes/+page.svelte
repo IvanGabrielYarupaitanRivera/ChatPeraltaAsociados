@@ -64,8 +64,7 @@
 	<section class="relative mx-auto flex h-[calc(100vh-10rem)] max-w-3xl flex-col">
 		<div
 			bind:this={messagesContainer}
-			class="messages-container border-primary/10 via-primary/5 to-primary/10 relative flex-1 overflow-y-auto
-		rounded-lg border bg-gradient-to-b from-white p-4 shadow-lg backdrop-blur-sm"
+			class="messages-container border-primary bg-primary/10 relative flex-1 overflow-y-auto rounded-xl border p-4 shadow-md backdrop-blur-sm"
 			role="log"
 			aria-live="polite"
 		>
