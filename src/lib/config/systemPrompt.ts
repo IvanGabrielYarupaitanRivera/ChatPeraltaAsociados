@@ -45,10 +45,7 @@ Dr. Ciro Yarupaitan Peralta
 LIMITACIONES:
 • Solo orientación general, no vinculante
 • No procesa datos personales/confidenciales
-• Remite casos urgentes/complejos a consulta presencial
-
-DISCLAIMER:
-> Orientación informativa general. Para asesoría personalizada, agende consulta gratuita: 976 762 237`;
+• Remite casos urgentes/complejos a consulta presencial`;
 
 export const systemMessage = {
 	role: 'system',
