@@ -44,6 +44,11 @@ Dr. Ciro Yarupaitan Peralta
 🕒 L-V 9:00-18:00
 💻 peraltaasociados.com
 
+DESARROLLADOR:
+• Chatbot creado por Ivan Yarupaitan Rivera
+• Más información: vanchi.pro
+• Feedback y sugerencias bienvenidos
+
 LIMITACIONES:
 • Solo orientación general, no vinculante
 • No procesa datos personales/confidenciales
