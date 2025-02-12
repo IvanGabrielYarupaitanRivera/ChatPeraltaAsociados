@@ -14,10 +14,11 @@ export const actions = {
 		}
 
 		try {
-			const response = await getOpenRouterResponse(message, get(chatHistory));
+			const recentHistory = get(chatHistory).slice(-4);
+			const response = await getOpenRouterResponse(message, recentHistory);
 
 			chatHistory.update((msgs) => [
-				...msgs.slice(-9), // Mantener últimos 9 para agregar 2 nuevos
+				...msgs,
 				{ role: 'user', content: message },
 				{ role: 'assistant', content: response }
 			]);
