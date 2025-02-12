@@ -1,7 +1,9 @@
 <script lang="ts">
-	let { type, content }: { type: 'user' | 'bot'; content: string } = $props();
+	import { marked } from 'marked'; // Necesitas instalar: npm i marked
 
+	let { type, content }: { type: 'user' | 'bot'; content: string } = $props();
 	let isUser: boolean = $derived(type === 'user');
+	let parsedContent = $derived(marked(content));
 
 	let bubbleClasses: string = $derived(
 		isUser
@@ -15,6 +17,18 @@
 		class="border-opacity-10 rounded-2xl border p-4 shadow-lg transition-all duration-200 hover:shadow-xl
       {bubbleClasses}"
 	>
-		<p class="text-sm">{content}</p>
+		<p class="prose prose-sm text-sm" class:prose-invert={isUser}>
+			{@html parsedContent}
+		</p>
 	</div>
 </article>
+
+<style>
+	:global(.prose strong) {
+		font-weight: bold;
+	}
+
+	:global(.prose-invert strong) {
+		color: white;
+	}
+</style>
