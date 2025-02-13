@@ -2,6 +2,7 @@
 	import { enhance } from '$app/forms';
 	import MessageBubble from '$lib/components/chat/MessageBubble.svelte';
 	import TypingIndicator from '$lib/components/chat/TypingIndicator.svelte';
+	import { SendMessageIcon } from '$lib/icons/index.js';
 
 	let { data } = $props();
 	let { messages } = $derived(data);
@@ -104,20 +105,7 @@
 					disabled={!currentMessage.trim() || isSending}
 					title="Enviar mensaje"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-5 w-5"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-						/>
-					</svg>
+					<SendMessageIcon />
 				</button>
 			</div>
 		</form>

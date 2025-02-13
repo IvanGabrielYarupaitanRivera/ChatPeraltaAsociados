@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { NewConversationIcon } from '$lib/icons';
 </script>
 
 <header class="bg-white shadow-lg">
@@ -23,25 +24,12 @@
 			<form action="?/reset" method="POST" use:enhance>
 				<button
 					type="submit"
-					class="text-primary border-primary focus:ring-primary/20 cursor-pointer rounded-lg border p-3 transition-all duration-200
-				   hover:bg-gray-100 hover:shadow-md focus:ring-2 focus:outline-none"
+					class="text-primary border-primary cursor-pointer rounded-lg border p-2 transition-all duration-200
+				   hover:bg-gray-100 hover:shadow-md"
 					aria-label="Nueva conversación"
 					title="Nueva conversación"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-5 w-5"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path
-							d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-						/>
-					</svg>
+					<NewConversationIcon />
 				</button>
 			</form>
 		</div>
