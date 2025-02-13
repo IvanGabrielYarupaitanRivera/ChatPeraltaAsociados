@@ -57,7 +57,6 @@
 			try {
 				await update();
 				scrollToBottom();
-				focusTextarea();
 			} catch (error) {
 				console.error('Error:', error);
 				currentMessage = messageToSend;
