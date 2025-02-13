@@ -102,6 +102,7 @@
 					class="bg-primary hover:bg-primary/90 absolute right-4 bottom-4 flex items-center justify-center rounded-lg p-2
                text-white transition-colors duration-200 disabled:opacity-50"
 					disabled={!currentMessage.trim() || isSending}
+					title="Enviar mensaje"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

@@ -26,6 +26,7 @@
 					class="text-primary border-primary focus:ring-primary/20 cursor-pointer rounded-lg border p-3 transition-all duration-200
 				   hover:bg-gray-100 hover:shadow-md focus:ring-2 focus:outline-none"
 					aria-label="Nueva conversación"
+					title="Nueva conversación"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
