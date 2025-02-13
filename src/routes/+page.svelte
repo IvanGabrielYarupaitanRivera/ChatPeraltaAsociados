@@ -1,61 +1,68 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import type { ActionResult } from '@sveltejs/kit';
 	import MessageBubble from '$lib/components/chat/MessageBubble.svelte';
 	import TypingIndicator from '$lib/components/chat/TypingIndicator.svelte';
-	import { chatHistory } from '$lib/stores/chatStore';
 
+	let { data } = $props();
+	let { messages } = $derived(data);
 	let currentMessage = $state('');
 	let messagesContainer: HTMLDivElement;
 	let textareaRef: HTMLTextAreaElement;
 	let isSending = $state(false);
 
+	const focusTextarea = () => {
+		setTimeout(() => textareaRef?.focus(), 100);
+	};
+
+	const scrollToBottom = () => {
+		if (messagesContainer) {
+			const shouldScroll =
+				messagesContainer.scrollHeight - messagesContainer.clientHeight <=
+				messagesContainer.scrollTop + 150;
+
+			if (shouldScroll) {
+				setTimeout(() => {
+					messagesContainer.scrollTo({
+						top: messagesContainer.scrollHeight,
+						behavior: 'smooth'
+					});
+				}, 100);
+			}
+		}
+	};
+
 	$effect(() => {
-		if (messagesContainer && $chatHistory) {
-			requestAnimationFrame(() => {
-				messagesContainer.scrollTo({
-					top: messagesContainer.scrollHeight,
-					behavior: 'smooth'
-				});
-				textareaRef?.focus();
-			});
+		if (messages) {
+			scrollToBottom();
+			focusTextarea();
 		}
 	});
 
 	const handleSending = () => {
-		chatHistory.update((prev) => [
-			...prev,
-			{
-				role: 'user',
-				content: currentMessage
-			}
-		]);
+		if (!currentMessage.trim() || isSending) return;
 
-		currentMessage = '';
 		isSending = true;
+		const messageToSend = currentMessage;
+		currentMessage = '';
 
-		return async ({ update, result }: { update: () => Promise<void>; result: ActionResult }) => {
-			await update();
+		// Actualizamos data y scroll
+		data = {
+			...data,
+			messages: [...messages, { role: 'user', content: messageToSend }]
+		};
+		scrollToBottom();
 
-			if (result.type === 'success') {
-				chatHistory.update((prev) => [
-					...prev,
-					{
-						role: 'assistant',
-						content: result.data?.response
-					}
-				]);
-			} else {
-				chatHistory.update((prev) => [
-					...prev,
-					{
-						role: 'assistant',
-						content: '¡Vaya! Algo salió mal. Por favor, inténtalo de nuevo.'
-					}
-				]);
+		return async ({ update }: { update: () => Promise<void> }) => {
+			try {
+				await update();
+				scrollToBottom();
+				focusTextarea();
+			} catch (error) {
+				console.error('Error:', error);
+				currentMessage = messageToSend;
+			} finally {
+				isSending = false;
 			}
-
-			isSending = false;
 		};
 	};
 </script>
@@ -68,7 +75,7 @@
 			role="log"
 			aria-live="polite"
 		>
-			{#each $chatHistory as message}
+			{#each messages as message}
 				<MessageBubble type={message.role === 'user' ? 'user' : 'bot'} content={message.content} />
 			{/each}
 
@@ -88,6 +95,7 @@
 					placeholder="Escribe tu consulta legal aquí..."
 					rows="3"
 				></textarea>
+
 				<button
 					type="submit"
 					aria-label="Enviar mensaje"

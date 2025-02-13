@@ -2,11 +2,8 @@ import { OPENROUTER_API_KEY } from '$env/static/private';
 import type { ChatMessage } from '$lib/types/chat';
 import { systemMessage } from '$lib/config/systemPrompt';
 
-export async function getOpenRouterResponse(
-	userPrompt: string,
-	history: ChatMessage[] = []
-): Promise<string> {
-	const messages = [systemMessage, ...history, { role: 'user', content: userPrompt }];
+export async function getOpenRouterResponse(history: ChatMessage[] = []): Promise<string> {
+	const messages = [systemMessage, ...history];
 
 	try {
 		const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -29,6 +26,7 @@ export async function getOpenRouterResponse(
 		if (!response.ok) throw new Error(`Error API: ${response.status}`);
 
 		const data = await response.json();
+
 		return data.choices?.[0]?.message?.content?.trim() || 'No se obtuvo respuesta.';
 	} catch (error) {
 		console.error('Error al llamar a OpenRouter:', error);
