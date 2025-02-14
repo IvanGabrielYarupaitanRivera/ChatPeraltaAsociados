@@ -27,7 +27,7 @@
 						top: messagesContainer.scrollHeight,
 						behavior: 'smooth'
 					});
-				}, 100);
+				}, 300);
 			}
 		}
 	};
@@ -62,6 +62,7 @@
 				currentMessage = messageToSend;
 			} finally {
 				isSending = false;
+				scrollToBottom();
 			}
 		};
 	};
