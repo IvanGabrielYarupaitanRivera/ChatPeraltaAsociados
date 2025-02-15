@@ -8,9 +8,6 @@
 			"node-loader": "^7.3.0"
 		}
 	},
-	"engines": {
-		"node": ">=20.0.0"
-	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "npm install --platform=linux --arch=x64 sharp && vite build",
