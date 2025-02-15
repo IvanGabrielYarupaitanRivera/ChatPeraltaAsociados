@@ -4,6 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "20.0.0"
+  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
+  SHARP_PATH = "/tmp/sharp"
 
 [[headers]]
   for = "/*"

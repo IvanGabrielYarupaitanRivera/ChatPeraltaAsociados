@@ -1,8 +1,11 @@
 {
 	"name": "chatperaltaasociados",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
+	"overrides": {
+		"sharp": "0.32.6"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
