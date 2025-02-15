@@ -68,57 +68,47 @@ const systemPrompts: LegalContext[] = [
 ];
 
 const technicalInfo: LegalContext[] = [
-	// Información del desarrollador
 	{
 		category: 'tecnico',
-		subcategory: 'desarrollador',
-		prompt: `Desarrollador del proyecto:
-	  - Ing. Ivan Yarupaitan Rivera
-	  - Ingeniero de Sistemas
-	  - Portfolio: vanchi.pro
-	  - Proyecto fullstack de asistencia legal`,
-		keywords: [
-			// Rol
-			'desarrollador',
-			'developer',
-			'ingeniero',
-			'engineer',
-			// Identidad
-			'autor',
-			'author',
-			'creador',
-			'creator',
-			// Proyecto
-			'fullstack',
-			'portfolio'
-		]
-	},
-	// Detalles técnicos
-	{
-		category: 'tecnico',
-		subcategory: 'tecnologias',
-		prompt: `Stack tecnológico:
+		subcategory: 'informacion_proyecto',
+		prompt: `El creador y desarrollador de este proyecto, chatbot y sitio web es:
+	  - Ing. Ivan Yarupaitan Rivera (Portfolio: vanchi.pro)
+	  
+	  Stack tecnológico:
 	  - Frontend: Svelte 5 + SvelteKit + Tailwind CSS
 	  - Backend: OpenRouter + Supabase Vector
 	  - Características: Chat IA, búsqueda semántica
 	  - Infraestructura: Netlify`,
 		keywords: [
+			// Desarrollador
+			'desarrollador',
+			'developer',
+			'ingeniero',
+			'engineer',
+			'autor',
+			'creator',
+
 			// Frontend
 			'svelte',
 			'sveltekit',
 			'tailwind',
 			'ui',
+
 			// Backend
 			'openrouter',
 			'supabase',
 			'ia',
 			'ai',
+
 			// Características
 			'chat',
 			'búsqueda',
 			'tiempo-real',
 			'embeddings',
-			// Infraestructura
+
+			// Proyecto
+			'fullstack',
+			'portfolio',
 			'netlify',
 			'deploy'
 		]
