@@ -41,7 +41,7 @@ export const actions = {
 						- Obligatorio: nunca usar asteriscos, solo puntos y comas
 						- Evitar jerga legal compleja
 						- Mantener tono cercano 
-						- Al final sugerir 2 opciones de contacto según contexto
+						- Al final sugerir 2 opciones de contacto según la consulta
 
 						Contexto relevante:
 						${contexts.map((c) => `[${c.category}] ${c.prompt.substring(0, 400).trim()}`).join('\n')}
