@@ -32,7 +32,7 @@ export const actions = {
 		}
 
 		try {
-			const contexts = await searchSimilarContexts(message, 0.7, 3);
+			const contexts = await searchSimilarContexts(message, 0.7, 2);
 
 			const enrichedMessage = `
 			Para tu respuesta solo usa los siguientes símbolos de puntuación: . ,
