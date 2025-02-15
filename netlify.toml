@@ -2,4 +2,11 @@
 	command = "npm run build"
 	publish = "build"
 
-    
+[build.environment]
+  NODE_VERSION = "20.0.0"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
