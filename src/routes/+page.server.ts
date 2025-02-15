@@ -2,15 +2,11 @@
 import { fail } from '@sveltejs/kit';
 import { getOpenRouterResponse } from '$lib/services/openrouter';
 import type { Actions, PageServerLoad } from './$types';
-import { SYSTEM_PROMPT } from '$lib/config/systemPrompt';
 import type { ChatMessage } from '$lib/types/chat';
+import { searchSimilarContexts } from '$lib/utils/embeddings';
 
 // Inicialización del chat con system prompt
 const initialConversation: ChatMessage[] = [
-	{
-		role: 'system',
-		content: SYSTEM_PROMPT
-	},
 	{
 		role: 'assistant',
 		content: '¡Hola! Soy el asistente legal de Peralta Asociados. ¿En qué puedo ayudarte?'
@@ -18,11 +14,11 @@ const initialConversation: ChatMessage[] = [
 ];
 
 // Variable de sesión
-let conversation = [...initialConversation];
+let conversation: ChatMessage[] = [...initialConversation];
 
 export const load: PageServerLoad = () => {
 	return {
-		messages: conversation.filter((msg) => msg.role !== 'system')
+		messages: conversation
 	};
 };
 
@@ -36,20 +32,42 @@ export const actions = {
 		}
 
 		try {
+			const contexts = await searchSimilarContexts(message, 0.8, 2);
+
+			const enrichedMessage = `
+			Para tu respuesta solo usa los siguientes símbolos de puntuación: . , ; . Para nada uses asteriscos. Termina con una pregunta interesante.
+
+			Uusario: ${message}
+			${contexts.map((c) => `[${c.keywords}] ${c.prompt.substring(0, 200)}`).join(' | ')}
+		  `.trim();
+
 			// Agregar mensaje del usuario
 			conversation.push({ role: 'user', content: message });
 
 			// Obtener respuesta
-			const recentHistory = conversation.slice(-4);
+			const previousMessages =
+				conversation.length >= 2
+					? conversation.slice(-2, -1) // Toma mensajes hasta antes del último
+					: [];
+			const enrichedHistory: ChatMessage[] = [
+				...previousMessages,
+				{ role: 'user', content: enrichedMessage }
+			];
 
-			const response = await getOpenRouterResponse(recentHistory);
+			const response = await getOpenRouterResponse(enrichedHistory);
 
 			// Agregar respuesta del asistente
 			conversation.push({ role: 'assistant', content: response });
 
+			console.log('Mensaje usuario', message);
+			console.log('Contextos similares:', contexts);
+			console.log('Mensaje Enriquecido', enrichedMessage);
+			console.log('Historial Enriquecido', enrichedHistory);
+
 			return {
 				success: true,
-				messages: conversation.filter((msg) => msg.role !== 'system')
+				messages: conversation.filter((msg) => msg.role !== 'system'),
+				similarContexts: contexts
 			};
 		} catch (error) {
 			console.error('Error:', error);

@@ -1,9 +1,8 @@
 import { OPENROUTER_API_KEY } from '$env/static/private';
 import type { ChatMessage } from '$lib/types/chat';
-import { systemMessage } from '$lib/config/systemPrompt';
 
 export async function getOpenRouterResponse(history: ChatMessage[] = []): Promise<string> {
-	const messages = [systemMessage, ...history];
+	const messages = [...history];
 
 	try {
 		const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
