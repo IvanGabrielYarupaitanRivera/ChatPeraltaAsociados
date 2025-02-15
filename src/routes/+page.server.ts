@@ -44,7 +44,7 @@ export const actions = {
 						- Al final sugerir contactar al estudio
 
 						Contexto relevante:
-						${contexts.map((c) => `[${c.category}] ${c.prompt.substring(0, 250).trim()}`).join('\n')}
+						${contexts.map((c) => `[${c.category}] ${c.prompt.substring(0, 400).trim()}`).join('\n')}
 						`.trim();
 
 			// Agregar mensaje del usuario
