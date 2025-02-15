@@ -36,7 +36,7 @@ export const actions = {
 
 			const enrichedMessage = `
 			Para tu respuesta solo usa los siguientes símbolos de puntuación: . ,
-			Para nada uses asteriscos.
+			Para nada uses asteriscos. Que tu respuesta sean bien redactadas, como un experto en redacción, evita parecer un robot.
 
 			Uusario: ${message}
 			${contexts.map((c) => `[${c.keywords}] ${c.prompt.substring(0, 300)}`).join(' | ')}

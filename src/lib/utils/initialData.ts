@@ -77,7 +77,7 @@ const technicalInfo: LegalContext[] = [
 	  Stack tecnológico:
 	  - Frontend: Svelte 5 + SvelteKit + Tailwind CSS
 	  - Backend: OpenRouter + Supabase Vector
-	  - Características: Chat IA, búsqueda semántica
+	  - Características:  búsqueda semántica
 	  - Infraestructura: Netlify`,
 		keywords: [
 			// Desarrollador
