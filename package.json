@@ -4,11 +4,16 @@
 	"version": "0.0.2",
 	"type": "module",
 	"overrides": {
-		"sharp": "0.32.6"
+		"sharp": {
+			"node-loader": "^7.3.0"
+		}
+	},
+	"engines": {
+		"node": ">=20.0.0"
 	},
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "npm install --platform=linux --arch=x64 sharp && vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
