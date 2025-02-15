@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://chat.peraltaasociados.com/sitemap.xml
+
+# Host
+Host: https://chat.peraltaasociados.com
