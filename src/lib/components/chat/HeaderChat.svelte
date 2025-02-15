@@ -7,11 +7,13 @@
 	<div class="container mx-auto px-4 py-3">
 		<div class="flex items-center justify-between">
 			<figure class="flex items-center gap-4">
-				<img
-					src="/logos/PeraltaAsociadosLogo.svg"
-					alt="Logo de Peralta Asociados"
-					class="h-8 w-8 transition-transform hover:scale-105 sm:h-12 sm:w-12"
-				/>
+				<a href="/">
+					<img
+						src="/logos/PeraltaAsociadosLogo.svg"
+						alt="Logo de Peralta Asociados"
+						class="h-8 w-8 transition-transform hover:scale-105 sm:h-12 sm:w-12"
+					/>
+				</a>
 
 				<figcaption>
 					<h1 class="text-primary font-serif text-lg font-bold sm:text-xl lg:text-2xl">
