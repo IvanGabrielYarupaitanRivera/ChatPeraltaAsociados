@@ -32,13 +32,14 @@ export const actions = {
 		}
 
 		try {
-			const contexts = await searchSimilarContexts(message, 0.8, 2);
+			const contexts = await searchSimilarContexts(message, 0.7, 3);
 
 			const enrichedMessage = `
-			Para tu respuesta solo usa los siguientes símbolos de puntuación: . , ; . Para nada uses asteriscos.
+			Para tu respuesta solo usa los siguientes símbolos de puntuación: . ,
+			Para nada uses asteriscos.
 
 			Uusario: ${message}
-			${contexts.map((c) => `[${c.keywords}] ${c.prompt.substring(0, 200)}`).join(' | ')}
+			${contexts.map((c) => `[${c.keywords}] ${c.prompt.substring(0, 300)}`).join(' | ')}
 		  `.trim();
 
 			// Agregar mensaje del usuario
