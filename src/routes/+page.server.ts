@@ -38,10 +38,9 @@ export const actions = {
 						Consulta: ${message}
 
 						Instrucciones de respuesta: 
+						- Obligatorio: nunca usar asteriscos, solo puntos y comas
 						- Evitar jerga legal compleja
-						- Mantener tono empático y cercano
-						- Solo usa . y , para puntuación
-						- No usar * ni ** 
+						- Mantener tono cercano 
 						- Al final sugerir contactar al estudio
 
 						Contexto relevante:
