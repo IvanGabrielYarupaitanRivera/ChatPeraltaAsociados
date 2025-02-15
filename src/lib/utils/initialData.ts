@@ -10,7 +10,6 @@ const systemPrompts: LegalContext[] = [
 		prompt: `Estudio jurídico Peralta Asociados:
 	  - Fundado por Dr. Ciro Yarupaitan en Huancavelica
 	  - Especialistas en derecho administrativo, civil, laboral y constitucional
-	  - Asistente virtual profesional y amigable
 	  - Brindamos orientación clara y derivamos casos complejos`,
 		keywords: [
 			// Identidad
@@ -32,17 +31,57 @@ const systemPrompts: LegalContext[] = [
 			'advice'
 		]
 	},
+	{
+		category: 'system',
+		subcategory: 'objetivo_chatbot',
+		prompt: `Propósito del Asistente Legal con Inteligencia Artificial:
+		  - Brindar orientación legal inicial gratuita para Huancavelica
+		  - Responder consultas sobre derecho administrativo, civil, laboral y constitucional
+		  - Recomendar servicios especializados de Peralta Asociados
+		  - Facilitar el contacto con el Dr. Ciro Yarupaitan para casos específicos`,
+		keywords: [
+			// Propósito
+			'asistencia',
+			'assistance',
+			'orientación',
+			'guidance',
+			'ayuda',
+			'help',
+
+			// Rol
+			'asistente',
+			'assistant',
+			'chatbot',
+			'bot',
+
+			// Función
+			'consulta',
+			'inquiry',
+			'asesoría',
+			'advice',
+			'contacto',
+			'contact',
+
+			// Servicios
+			'legal',
+			'law',
+			'gratuito',
+			'free',
+			'especializado',
+			'specialized'
+		]
+	},
 	// Contacto y avisos
 	{
 		category: 'system',
 		subcategory: 'contacto_legal',
-		prompt: `Información importante:
-	  📱 WhatsApp: 976762237
-	  📧 Email: cyarupaitanp@gmail.com
-	  📍 Jr. Mayta Cápac 215, Huancavelica
-	  ⏰ L-V 8:00 AM - 8:00 PM
-	  
-	  Nota: Esta es información general orientativa, no asesoría legal formal. Para casos específicos, contáctenos directamente.`,
+		prompt: `Información importante de contacto:
+	  	 	WhatsApp: 976762237
+	   		Email: cyarupaitanp@gmail.com
+	   		Jr. Mayta Cápac 215, Huancavelica en el Barrio de San Cristobal
+	   		L-V 8:00 AM - 8:00 PM
+			Facebook: https://facebook.com/PeraltaAsociadosPeru/
+			Página web: https://peraltaasociados.com `,
 		keywords: [
 			// Contacto
 			'contacto',

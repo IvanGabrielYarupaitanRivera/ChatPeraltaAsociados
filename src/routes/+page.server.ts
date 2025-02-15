@@ -35,12 +35,18 @@ export const actions = {
 			const contexts = await searchSimilarContexts(message, 0.7, 2);
 
 			const enrichedMessage = `
-			Para tu respuesta solo usa los siguientes símbolos de puntuación: . ,
-			Para nada uses asteriscos. Que tu respuesta sean bien redactadas, como un experto en redacción, evita parecer un robot.
+						Consulta: ${message}
 
-			Uusario: ${message}
-			${contexts.map((c) => `[${c.keywords}] ${c.prompt.substring(0, 300)}`).join(' | ')}
-		  `.trim();
+						Instrucciones de respuesta: 
+						- Evitar jerga legal compleja
+						- Mantener tono empático y cercano
+						- Solo usa . y , para puntuación
+						- No usar * ni ** 
+						- Al final sugerir contactar al estudio
+
+						Contexto relevante:
+						${contexts.map((c) => `[${c.category}] ${c.prompt.substring(0, 250).trim()}`).join('\n')}
+						`.trim();
 
 			// Agregar mensaje del usuario
 			conversation.push({ role: 'user', content: message });
