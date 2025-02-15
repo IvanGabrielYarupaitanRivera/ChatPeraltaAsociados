@@ -40,7 +40,9 @@ export const actions = {
 						Instrucciones de respuesta: 
 						- Obligatorio: nunca usar asteriscos, solo puntos y comas
 						- Mantener tono cercano 
-						- Al final sugerir una opción de contacto, que sea aleatoria y dilo de forma muy naturaly sutíl
+						- Buena ortografía y gramática
+						- Si el caso es complejo, recomendar contacto con Dr. Ciro Yarupaitan, ofrecer asesoría inicial gratuita y decir que WhatsApp es la mejor forma de contacto.
+
 
 						Contexto relevante:
 						${contexts.map((c) => `[${c.category}] ${c.prompt.substring(0, 400).trim()}`).join('\n')}
