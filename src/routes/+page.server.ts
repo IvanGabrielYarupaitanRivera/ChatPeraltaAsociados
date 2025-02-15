@@ -39,9 +39,8 @@ export const actions = {
 
 						Instrucciones de respuesta: 
 						- Obligatorio: nunca usar asteriscos, solo puntos y comas
-						- Evitar jerga legal compleja
 						- Mantener tono cercano 
-						- Al final sugerir 2 opciones de contacto según la consulta
+						- Al final sugerir una opción de contacto, que sea aleatoria y dilo de forma muy naturaly sutíl
 
 						Contexto relevante:
 						${contexts.map((c) => `[${c.category}] ${c.prompt.substring(0, 400).trim()}`).join('\n')}
