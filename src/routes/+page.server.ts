@@ -76,12 +76,6 @@ export const actions = {
 
 			conversations.set(sessionId, conversation);
 
-			console.log('Cookie: ', sessionId);
-			console.log('Mensaje usuario', message);
-			console.log('Contextos similares:', contexts);
-			console.log('Mensaje Enriquecido', enrichedMessage);
-			console.log('Historial Enriquecido', enrichedHistory);
-
 			return {
 				success: true,
 				messages: conversation,
