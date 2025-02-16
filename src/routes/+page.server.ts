@@ -1,14 +1,11 @@
-// +page.server.ts
 import { fail } from '@sveltejs/kit';
 import { getOpenRouterResponse } from '$lib/services/openrouter';
 import type { Actions, PageServerLoad } from './$types';
 import type { ChatMessage } from '$lib/types/chat';
 import { searchSimilarContexts } from '$lib/utils/embeddings';
 
-// Map para almacenar conversaciones en memoria
 const conversations = new Map<string, ChatMessage[]>();
 
-// Mensaje inicial del asistente
 const initialMessage: ChatMessage = {
 	role: 'assistant',
 	content: '¡Hola! Soy el asistente legal de Peralta Asociados. ¿En qué puedo ayudarte?'
@@ -55,9 +52,9 @@ export const actions = {
 			// Obtener respuesta
 			const previousMessages = conversation.length >= 2 ? conversation.slice(-2, -1) : [];
 			const instrucciones =
-				'Obligatorio nunca usar asteriscos, solo puntos y comas; mantener tono cercano; buena ortografía y gramática; si el caso es complejo, recomendar contacto con el Dr. Ciro Yarupaitan';
+				'Obligatorio nunca usar asteriscos, solo puntos y comas; mantener tono cercano; buena ortografía y gramática; si el caso es complejo, recomendar contacto con el Dr. Ciro Yarupaitan. Importante, siempre debes colocar los enlaces con una etiqueta <a class="underline text-secondary href="[Enlace] target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a>';
 			const contexto = contexts
-				.map((c) => `[${c.category}] ${c.prompt.substring(0, 400).trim()}`)
+				.map((c) => `[${c.category}] ${c.prompt.substring(0, 1000).trim()}`)
 				.join(' ')
 				.replace(/\s+/g, ' ')
 				.trim();
