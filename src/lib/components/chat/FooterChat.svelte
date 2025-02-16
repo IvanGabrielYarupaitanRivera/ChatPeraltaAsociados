@@ -7,7 +7,7 @@
 		© {currentYear} - Esta información es orientativa. Para asesoría específica, consulte con
 		<a
 			href="https://peraltaasociados.com/#contacto"
-			class="hover:text-secondary hover:decoration-secondary text-gray-400 underline decoration-gray-400 transition-colors"
+			class="hover:text-secondary hover:decoration-secondary text-secondary transition-colors hover:underline"
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="Contactar con los abogados de Peralta Asociados (abre en nueva ventana)"
