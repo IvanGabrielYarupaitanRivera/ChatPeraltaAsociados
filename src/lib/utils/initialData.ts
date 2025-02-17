@@ -285,6 +285,26 @@ const technicalInfo: LegalContext[] = [
 	},
 	{
 		category: 'tecnico',
+		subcategory: 'desarrollador_perfil',
+		question: '¿Quién es el ingeniero que desarrolló este sistema?',
+		prompt: `Este sistema fue desarrollado por Ivan Yarupaitan Rivera, ingeniero de sistemas especializado en desarrollo web e inteligencia artificial. Puedes conocer más sobre su trabajo profesional en su portafolio. Enlace: https://vanchi.pro/`,
+		keywords: [
+			'ingeniero sistemas',
+			'desarrollador web',
+			'especialista ia',
+			'ivan yarupaitan',
+			'perfil profesional'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'desarrollador',
+		question: '¿Quién creó este chat o proyecto?',
+		prompt: `El creador de este chatbot es Ivan Yarupaitan Rivera, ingeniero de sistemas. Puedes explorar más de sus proyectos visitando su portafolio en vanchi.pro. Enlace: https://vanchi.pro/`,
+		keywords: ['desarrollador', 'portafolio', 'proyectos', 'ivan yarupaitan', 'ingeniero sistemas']
+	},
+	{
+		category: 'tecnico',
 		subcategory: 'tecnologias',
 		question: '¿Qué tecnologías se usaron para crear este chatbot?',
 		prompt: `Este chatbot fue desarrollado con Svelte 5 y SvelteKit para el frontend, usando Tailwind CSS para el diseño. En el backend se implementó OpenRouter y Supabase Vector para la búsqueda semántica, y está desplegado en Netlify.`,
@@ -327,6 +347,66 @@ const technicalInfo: LegalContext[] = [
 			'ivan yarupaitan',
 			'página personal',
 			'comunicación'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'desarrollador_stack',
+		question: '¿Qué tecnologías usó Ivan para crear este chatbot?',
+		prompt: `Este chatbot fue desarrollado usando Svelte 5 y SvelteKit para el frontend, Tailwind CSS para el diseño, y tecnologías de IA como OpenRouter y búsqueda semántica. El proyecto está desplegado en Netlify para garantizar alta disponibilidad. Enlaces:
+		GitHub: https://github.com/IvanGabrielYarupaitanRivera
+		Portafolio: https://vanchi.pro/`,
+		keywords: [
+			'tecnologías usadas',
+			'stack técnico',
+			'desarrollo web',
+			'herramientas ia',
+			'frameworks'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'desarrollador_contacto',
+		question: '¿Cómo puedo contactar a Ivan para un proyecto similar?',
+		prompt: `Si estás interesado en desarrollar un proyecto similar, puedes contactar a Ivan Yarupaitan a través de:
+		Portafolio: https://vanchi.pro/
+		LinkedIn: https://www.linkedin.com/in/ivan-yarupaitan-rivera/
+		GitHub: https://github.com/IvanGabrielYarupaitanRivera`,
+		keywords: [
+			'contacto desarrollador',
+			'proyectos similares',
+			'portafolio ivan',
+			'desarrollo chatbot',
+			'servicios tech'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'desarrollador_info',
+		question: '¿Dónde puedo ver más trabajos o el perfil profesional de Ivan Yarupaitan?',
+		prompt: `Puedes conocer más sobre Ivan Yarupaitan y su trabajo profesional en:
+		Portafolio: https://vanchi.pro/
+		LinkedIn: https://www.linkedin.com/in/ivan-yarupaitan-rivera/
+		GitHub: https://github.com/IvanGabrielYarupaitanRivera`,
+		keywords: [
+			'perfil profesional',
+			'portafolio ivan',
+			'redes profesionales',
+			'github proyectos',
+			'contacto desarrollador'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'desarrollador_info',
+		question: '¿Quién es Ivan Yarupaitan?',
+		prompt: `Ivan Yarupaitan Rivera es un ingeniero de sistemas que desarrolló este chatbot para Peralta Asociados. Es especialista en desarrollo web y aplicaciones con inteligencia artificial. Puedes conocer más sobre su trabajo visitando su portafolio. Enlace: https://vanchi.pro/`,
+		keywords: [
+			'desarrollador web',
+			'ivan yarupaitan',
+			'ingeniero sistemas',
+			'creador chatbot',
+			'profesional tech'
 		]
 	},
 	{
