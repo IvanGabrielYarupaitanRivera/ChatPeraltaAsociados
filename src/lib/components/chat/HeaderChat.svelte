@@ -27,10 +27,10 @@
 				<button
 					type="submit"
 					class="text-primary border-primary flex cursor-pointer items-center gap-2 rounded-lg border p-2 transition-all duration-200 hover:bg-gray-100 hover:shadow-md"
-					aria-label="Nueva conversación"
-					title="Nueva conversación"
+					aria-label="Nueva Consulta"
+					title="Nueva Consulta"
 				>
-					<span class="hidden sm:inline">Nueva Conversación</span>
+					<span class="hidden sm:inline">Nueva Consulta</span>
 					<NewConversationIcon />
 				</button>
 			</form>
