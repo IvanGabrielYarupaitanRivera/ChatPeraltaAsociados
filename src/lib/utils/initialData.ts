@@ -3,100 +3,104 @@ import { insertLegalContext } from './embeddings';
 import type { LegalContext } from './embeddings';
 
 const systemPrompts: LegalContext[] = [
-	// Información institucional
 	{
 		category: 'system',
 		subcategory: 'sobre_nosotros',
-		prompt: `Estudio jurídico Peralta Asociados:
-	  - Fundado por Dr. Ciro Yarupaitan en Huancavelica
-	  - Especialistas en derecho administrativo, civil, laboral y constitucional
-	  - Brindamos orientación clara y derivamos casos complejos`,
+		question: '¿Qué es Peralta Asociados y qué servicios ofrece?',
+		prompt: `Peralta Asociados es un prestigioso estudio jurídico ubicado en Huancavelica, fundado por el Dr. Ciro Yarupaitan. Nos especializamos en derecho administrativo, civil, laboral y constitucional, brindando asesoría legal personalizada y representación efectiva tanto a empresas como a personas naturales. Nuestro compromiso es defender los derechos de nuestros clientes con excelencia profesional.`,
 		keywords: [
-			// Identidad
-			'estudio',
-			'law firm',
-			'bufete',
-			'office',
-			// Rol
-			'asistente',
-			'assistant',
-			'especialista',
-			'specialist',
-			// Servicios
-			'legal',
-			'law',
-			'servicios',
-			'services',
-			'asesoría',
-			'advice'
+			'estudio jurídico',
+			'servicios legales',
+			'Ciro Yarupaitan',
+			'Huancavelica',
+			'asesoría legal'
 		]
 	},
 	{
 		category: 'system',
 		subcategory: 'objetivo_chatbot',
-		prompt: `Propósito del Asistente Legal con Inteligencia Artificial:
-		  - Brindar orientación legal inicial gratuita para Huancavelica
-		  - Responder consultas sobre derecho administrativo, civil, laboral y constitucional
-		  - Recomendar servicios especializados de Peralta Asociados
-		  - Facilitar el contacto con el Dr. Ciro Yarupaitan para casos específicos`,
-		keywords: [
-			// Propósito
-			'asistencia',
-			'assistance',
-			'orientación',
-			'guidance',
-			'ayuda',
-			'help',
-
-			// Rol
-			'asistente',
-			'assistant',
-			'chatbot',
-			'bot',
-
-			// Función
-			'consulta',
-			'inquiry',
-			'asesoría',
-			'advice',
-			'contacto',
-			'contact',
-
-			// Servicios
-			'legal',
-			'law',
-			'gratuito',
-			'free',
-			'especializado',
-			'specialized'
-		]
+		question: '¿Qué tipo de ayuda me puede dar este chat y es gratis?',
+		prompt: `Este chat está diseñado para darte orientación legal gratuita básica si vives en Huancavelica. Te puedo ayudar con dudas sobre temas administrativos, civiles, laborales y constitucionales. Si tu caso necesita atención profesional, te conectaré con el Dr. Ciro Yarupaitan para una asesoría especializada.`,
+		keywords: ['ayuda gratis', 'chat legal', 'dudas derecho', 'asesoría', 'servicios abogado']
 	},
 	// Contacto y avisos
 	{
-		category: 'system',
+		category: 'contacto',
 		subcategory: 'contacto_legal',
-		prompt: `Información de Contacto - Peralta Asociados: 
-		WhatsApp, Número: 976762237 y Enlace directo para chatear: https://api.whatsapp.com/send?phone=976762237. Correo Electrónico, Email: cyarupaitanp@gmail.com. Ubicación de la Oficina, Dirección: Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica, Enlace a Google Maps: https://www.google.com/maps/place/12%C2%B047'00.6%22S+74%C2%B058'10.9%22W/@-12.783507,-74.969691,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-12.783507!4d-74.969691?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D. Horario de Atención, Lunes a Viernes de 8:00 AM a 8:00 PM. Redes Sociales y Página Web, Facebook: https://facebook.com/PeraltaAsociadosPeru/, Página web: https://peraltaasociados.com`,
+		question: '¿Cómo puedo contactar o visitar las oficinas de Peralta Asociados?',
+		prompt: `Puedes contactarnos por WhatsApp al 976762237, por correo a cyarupaitanp@gmail.com o visitarnos en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. También puedes encontrarnos en Facebook como PeraltaAsociadosPeru.`,
 		keywords: [
-			// Contacto
-			'contacto',
-			'contact',
-			'whatsapp',
-			'email',
+			'contacto abogado',
+			'dirección oficina',
+			'horario atención',
+			'whatsapp legal',
+			'ubicación estudio'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'whatsapp',
+		question: '¿Peralta Asociados tiene WhatsApp?',
+		prompt: `Sí, puedes contactarnos por WhatsApp al número 976762237 para consultas y agendar citas. Para tu comodidad, haz clic aquí para escribirnos directamente: https://api.whatsapp.com/send?phone=976762237`,
+		keywords: [
+			'whatsapp abogado',
+			'chat directo',
+			'contacto rápido',
+			'consulta legal',
+			'mensaje whatsapp'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'web',
+		question: '¿Peralta Asociados tiene página web?',
+		prompt: `Sí, puedes visitar nuestra página web oficial en www.peraltaasociados.com o hacer clic aquí: https://peraltaasociados.com/. Encontrarás información detallada sobre todos nuestros servicios legales.`,
+		keywords: [
+			'página web',
+			'sitio oficial',
+			'web abogados',
+			'servicios online',
+			'información legal'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'facebook',
+		question: '¿Peralta Asociados tiene página de Facebook?',
+		prompt: `Sí, nos puedes encontrar en Facebook como "PeraltaAsociadosPeru" o hacer clic aquí: https://www.facebook.com/PeraltaAsociadosPeru/. Síguenos para mantenerte informado sobre nuestros servicios y novedades legales.`,
+		keywords: [
+			'facebook legal',
+			'redes sociales',
+			'página facebook',
+			'abogados facebook',
+			'noticias legales'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'ubicacion',
+		question: '¿Dónde queda la oficina de Peralta Asociados?',
+		prompt: `Nuestra oficina está ubicada en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. Puedes hacer clic en el siguiente enlace para ver exactamente la ubicación de nuestra oficina gracias a google maps: https://www.google.com/maps/search/-12.783507,+-74.969691?entry=tts&g_ep=EgoyMDI1MDEyOS4xIPu8ASoASAFQAw%3D%3D`,
+		keywords: [
+			'dirección oficina',
 			'ubicación',
-			'location',
-			// Horario
-			'horario',
-			'schedule',
-			'atención',
-			'attention',
-			// Legal
-			'aviso',
-			'notice',
-			'advertencia',
-			'warning',
-			'disclaimer',
-			'legal'
+			'horario atención',
+			'consulta presencial',
+			'google maps',
+			'mapa'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'telefono',
+		question: '¿A qué número puedo llamar o escribir para contactarlos?',
+		prompt: `Puedes contactarnos al número 976762237 para llamadas o WhatsApp. También atendemos consultas por correo electrónico en cyarupaitanp@gmail.com`,
+		keywords: [
+			'número contacto',
+			'teléfono abogado',
+			'whatsapp legal',
+			'correo electrónico',
+			'comunicación directa'
 		]
 	}
 ];
@@ -104,40 +108,104 @@ const systemPrompts: LegalContext[] = [
 const technicalInfo: LegalContext[] = [
 	{
 		category: 'tecnico',
-		subcategory: 'informacion_proyecto',
-		prompt: `El creador y desarrollador de este chatbot con inteligencia artificial es el ingeniero de sistemas Ivan Yarupaitan Rivera, puedes encontrar más proyectos en su portafolio ingresando al siguiente link https://www.vanchi.pro/. El proyecto se desarrolló utilizando Svelte 5, SvelteKit y Tailwind CSS para el frontend, mientras que en el backend se implementó OpenRouter y Supabase Vector. Cuenta con búsqueda semántica como funcionalidad clave y está desplegado en Netlify.`,
+		subcategory: 'desarrollador',
+		question: '¿Quién creó este chatbot y dónde puedo ver más de sus proyectos?',
+		prompt: `El creador de este chatbot es Ivan Yarupaitan Rivera, ingeniero de sistemas. Puedes explorar más de sus proyectos visitando su portafolio en https://www.vanchi.pro/`,
+		keywords: ['desarrollador', 'portafolio', 'proyectos', 'ivan yarupaitan', 'ingeniero sistemas']
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'tecnologias',
+		question: '¿Qué tecnologías se usaron para crear este chatbot?',
+		prompt: `Este chatbot fue desarrollado con Svelte 5 y SvelteKit para el frontend, usando Tailwind CSS para el diseño. En el backend se implementó OpenRouter y Supabase Vector para la búsqueda semántica, y está desplegado en Netlify.`,
 		keywords: [
-			// Desarrollador
-			'desarrollador',
-			'developer',
-			'ingeniero',
-			'engineer',
-			'autor',
-			'creator',
+			'tecnologías',
+			'desarrollo web',
+			'inteligencia artificial',
+			'stack técnico',
+			'herramientas'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'tecnologias_backend',
+		question: '¿Qué es Supabase Vector?',
+		prompt: `Supabase Vector es una base de datos vectorial que permite almacenar y buscar embeddings (representaciones numéricas de texto) de manera eficiente. En este chatbot se usa para realizar búsquedas semánticas y encontrar respuestas relevantes a las consultas.`,
+		keywords: ['base de datos', 'vectores', 'embeddings', 'búsqueda semántica', 'almacenamiento']
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'tecnologias_backend',
+		question: '¿Qué es OpenRouter?',
+		prompt: `OpenRouter es una plataforma que proporciona acceso unificado a diferentes modelos de lenguaje como GPT-4, Claude y otros. En este chatbot se utiliza para procesar las consultas de los usuarios y generar respuestas naturales y precisas.`,
+		keywords: [
+			'modelo lenguaje',
+			'inteligencia artificial',
+			'procesamiento texto',
+			'chatbot',
+			'respuestas IA'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'contacto_desarrollador',
+		question: '¿Cómo puedo contactar a Ivan Yarupaitan?',
+		prompt: `Puedes contactar a Ivan Yarupaitan a través del formulario de contacto disponible en su página web: https://vanchi.pro/`,
+		keywords: [
+			'contacto desarrollador',
+			'formulario web',
+			'ivan yarupaitan',
+			'página personal',
+			'comunicación'
+		]
+	}
+];
 
-			// Frontend
-			'svelte',
-			'sveltekit',
-			'tailwind',
-			'ui',
-
-			// Backend
-			'openrouter',
-			'supabase',
-			'ia',
-			'ai',
-
-			// Características
-			'chat',
-			'búsqueda',
-			'tiempo-real',
-			'embeddings',
-
-			// Proyecto
-			'fullstack',
-			'portfolio',
-			'netlify',
-			'deploy'
+const ciroInfo: LegalContext[] = [
+	{
+		category: 'info_personal',
+		subcategory: 'formacion',
+		question: '¿Qué estudios y formación tiene el Dr. Ciro Yarupaitan?',
+		prompt: `El Dr. Ciro Yarupaitan es abogado graduado de la Universidad Católica Los Ángeles de Chimbote en 2007. Además, es egresado de la Maestría en Derecho Constitucional y cuenta con especializaciones en Derecho Administrativo, Civil, Laboral y Constitucional.`,
+		keywords: [
+			'formación académica',
+			'estudios derecho',
+			'maestría',
+			'especializaciones',
+			'universidad'
+		]
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'experiencia',
+		question: '¿Cuántos años de experiencia tiene el Dr. Ciro Yarupaitan?',
+		prompt: `El Dr. Ciro Yarupaitan cuenta con 17 años de experiencia como abogado y 35 años de trayectoria en el sector público. En 2015, se desempeñó como Juez de Paz Letrado Supernumerario, demostrando su amplia experiencia en el campo legal.`,
+		keywords: [
+			'experiencia profesional',
+			'trayectoria legal',
+			'sector público',
+			'juez paz',
+			'años servicio'
+		]
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'especializacion',
+		question: '¿En qué áreas del derecho se especializa el Dr. Ciro Yarupaitan?',
+		prompt: `El Dr. Ciro Yarupaitan está especializado principalmente en Derecho Laboral, Administrativo y Civil. Su formación incluye certificaciones en estas áreas, además del Derecho Constitucional, permitiéndole ofrecer un servicio legal integral.`,
+		keywords: ['especialización', 'áreas derecho', 'laboral', 'administrativo', 'civil']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'logros',
+		question: '¿Qué logros profesionales destacados tiene el Dr. Ciro Yarupaitan?',
+		prompt: `Entre los logros más destacados del Dr. Ciro Yarupaitan está su nombramiento como Juez de Paz Letrado Supernumerario en 2015, su trayectoria de 35 años en el sector público y su experiencia de 17 años como abogado especializado. Su compromiso con la justicia se refleja en su exitosa carrera en el servicio público y el derecho.`,
+		keywords: [
+			'logros profesionales',
+			'carrera judicial',
+			'servicio público',
+			'trayectoria legal',
+			'experiencia destacada'
 		]
 	}
 ];
@@ -147,117 +215,53 @@ const legalData: LegalContext[] = [
 	{
 		category: 'derecho_administrativo',
 		subcategory: 'servicios',
-		prompt: `Especialistas en derecho administrativo: 
-	  - Defensa en procedimientos disciplinarios (sector público, privado, PNP, Sunafil)
-	  - Trámites y gestiones ante entidades públicas
-	  - Recursos administrativos y apelaciones
-	  - Resolución de conflictos con el Estado`,
+		question: '¿Qué servicios ofrece Peralta Asociados en derecho administrativo?',
+		prompt: `Nos especializamos en defender tus derechos ante entidades públicas, incluyendo procesos disciplinarios en el sector público, PNP y Sunafil. También gestionamos trámites administrativos, apelaciones y ayudamos a resolver conflictos con instituciones del Estado.`,
 		keywords: [
-			// Términos principales
-			'administrativo',
-			'disciplinario',
-			'público',
-			// Entidades
-			'PNP',
-			'Sunafil',
-			'estado',
-			'gobierno',
-			// Acciones
-			'sanción',
-			'trámite',
-			'recurso',
-			'gestión',
-			// Procesos
-			'procedimiento',
-			'defensa',
-			'apelación'
+			'derecho administrativo',
+			'procesos disciplinarios',
+			'trámites públicos',
+			'apelaciones',
+			'defensa legal'
 		]
 	},
-
-	// Derecho Civil
 	{
 		category: 'derecho_civil',
 		subcategory: 'servicios',
-		prompt: `Asesoría integral en derecho civil:
-	  - Pensión de alimentos (demandas, modificaciones, ejecución)
-	  - Conciliaciones y ejecución de acuerdos
-	  - Prescripción adquisitiva de propiedades
-	  - Asuntos de familia y propiedad`,
+		question: '¿Qué servicios de derecho civil ofrece Peralta Asociados?',
+		prompt: `Brindamos asesoría completa en casos de pensión de alimentos, incluyendo demandas y modificaciones. También manejamos conciliaciones, ejecución de acuerdos, prescripción adquisitiva de propiedades y asuntos familiares.`,
 		keywords: [
-			// Términos principales
-			'civil',
-			'familia',
-			'propiedad',
-			// Procesos
-			'alimentos',
-			'pensión',
-			'conciliación',
-			// Acciones
-			'demandar',
-			'ejecutar',
-			'prescribir',
-			// Documentos
-			'acuerdo',
-			'título',
-			'contrato'
+			'derecho civil',
+			'pensión alimentos',
+			'conciliaciones',
+			'propiedades',
+			'asuntos familia'
 		]
 	},
-
-	// Derecho Laboral
 	{
 		category: 'derecho_laboral',
 		subcategory: 'servicios',
-		prompt: `Defensa de derechos laborales:
-	  - Protección contra despidos injustificados
-	  - Reclamo de beneficios sociales (CTS, gratificaciones, vacaciones)
-	  - Indemnizaciones y liquidaciones
-	  - Reincorporación laboral`,
+		question: '¿Qué servicios de derecho laboral ofrece Peralta Asociados?',
+		prompt: `Te defendemos contra despidos injustificados y ayudamos a reclamar tus beneficios sociales como CTS, gratificaciones y vacaciones. También gestionamos indemnizaciones y procesos de reincorporación laboral.`,
 		keywords: [
-			// Términos principales
-			'laboral',
-			'trabajo',
-			'empleo',
-			// Beneficios
-			'cts',
-			'gratificación',
-			'vacaciones',
-			// Acciones
-			'despido',
-			'reposición',
-			'reclamo',
-			// Derechos
-			'beneficios',
+			'derecho laboral',
+			'despido injusto',
+			'beneficios sociales',
 			'indemnización',
-			'remuneración'
+			'reincorporación'
 		]
 	},
-
-	// Derecho Constitucional
 	{
 		category: 'derecho_constitucional',
 		subcategory: 'servicios',
-		prompt: `Protección de derechos constitucionales:
-	  - Acciones de amparo por vulneración de derechos
-	  - Habeas corpus contra detenciones arbitrarias
-	  - Acciones de cumplimiento de sentencias
-	  - Defensa de derechos fundamentales`,
+		question: '¿Qué servicios de derecho constitucional ofrece Peralta Asociados?',
+		prompt: `Protegemos tus derechos fundamentales mediante acciones de amparo, habeas corpus contra detenciones arbitrarias y acciones de cumplimiento de sentencias. Nos especializamos en la defensa de derechos constitucionales.`,
 		keywords: [
-			// Términos principales
-			'constitucional',
-			'derechos',
-			'fundamental',
-			// Acciones
-			'amparo',
-			'habeas_corpus',
-			'cumplimiento',
-			// Procesos
-			'protección',
-			'libertad',
-			'ejecución',
-			// Documentos
-			'sentencia',
-			'resolución',
-			'mandato'
+			'derecho constitucional',
+			'amparo legal',
+			'habeas corpus',
+			'derechos fundamentales',
+			'cumplimiento sentencias'
 		]
 	}
 ];
@@ -271,6 +275,11 @@ export async function insertInitialData() {
 
 		// Insertar información técnica
 		for (const info of technicalInfo) {
+			await insertLegalContext(info);
+		}
+
+		// Insertar datos de Ciro Yarupaitan
+		for (const info of ciroInfo) {
 			await insertLegalContext(info);
 		}
 

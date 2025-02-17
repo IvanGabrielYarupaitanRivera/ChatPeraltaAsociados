@@ -5,6 +5,7 @@ import type { FeatureExtractionPipeline } from '@xenova/transformers';
 
 export interface LegalContext {
 	category: string;
+	question: string;
 	subcategory: string;
 	prompt: string;
 	keywords: string[];
@@ -12,6 +13,7 @@ export interface LegalContext {
 
 export interface SearchResult {
 	id: string;
+	question: string;
 	category: string;
 	subcategory: string;
 	prompt: string;
@@ -46,7 +48,8 @@ export async function generateEmbedding(text: string): Promise<number[]> {
 }
 
 export async function insertLegalContext(context: LegalContext) {
-	const searchText = `${context.prompt} ${context.keywords.join(' ')}`;
+	const searchText = `${context.question}. ${context.prompt}. Palabras clave: ${context.keywords.join(', ')}`;
+
 	const embedding = await generateEmbedding(searchText);
 
 	console.log('Embedding generado:', {
@@ -58,6 +61,7 @@ export async function insertLegalContext(context: LegalContext) {
 		.from('chat_contexts')
 		.insert({
 			category: context.category,
+			question: context.question,
 			subcategory: context.subcategory,
 			prompt: context.prompt,
 			keywords: context.keywords,
