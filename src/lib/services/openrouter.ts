@@ -13,7 +13,7 @@ export async function getOpenRouterResponse(history: ChatMessage[] = []): Promis
 				'X-Title': 'Asistente Legal Inteligente de Peralta Asociados'
 			},
 			body: JSON.stringify({
-				model: 'google/gemini-2.0-flash-lite-preview-02-05:free',
+				model: 'google/gemini-2.0-flash-exp:free',
 				messages,
 				stream: false,
 				temperature: 0.7,

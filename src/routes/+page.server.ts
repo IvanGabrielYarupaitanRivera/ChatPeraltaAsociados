@@ -60,7 +60,7 @@ export const actions = {
 			const historial = `Historial de la conversación: ${singleHistorial}`.trim();
 
 			const instrucciones =
-				'Formato de tu respuesta: Obligatorio nunca usar asteriscos, puedes usar etiquetas HTML, solo puntos finales y puntos seguidos para terminar oraciones. Puedes usar dos puntos (:) y comas (,). Mmantener tono cercano; buena ortografía y gramática; si el caso es complejo, recomendar contacto con el Dr. Ciro Yarupaitan. Importante, siempre debes colocar los enlaces con una etiqueta <a class="underline text-secondary href="[Enlace] target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a>';
+				'Formato de tu respuesta: Obligatorio nunca usar asteriscos, solo puedes usar puntos finales y puntos seguidos para terminar oraciones. Puedes usar dos puntos (:) y comas (,). Mantener tono cercano y si el caso es complejo, recomendar contacto con el Dr. Ciro Yarupaitan. Importante, siempre debes colocar los enlaces con una etiqueta <a class="underline text-secondary" href="[Enlace]" target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a>';
 			const contexto = contexts
 				.map((c) => `${c.question}. ${c.prompt.substring(0, 500).trim()}`)
 				.join(' ')
@@ -88,6 +88,7 @@ export const actions = {
 				previousMessages.length
 			);
 			console.log('Esto es el texto total que se manda al modelo: ', enrichedHistory);
+			console.log('Esto es la respuesta del modelo: ', response);
 
 			return {
 				success: true,

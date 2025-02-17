@@ -23,6 +23,19 @@ const systemPrompts: LegalContext[] = [
 		prompt: `Este chat está diseñado para darte orientación legal gratuita básica si vives en Huancavelica. Te puedo ayudar con dudas sobre temas administrativos, civiles, laborales y constitucionales. Si tu caso necesita atención profesional, te conectaré con el Dr. Ciro Yarupaitan para una asesoría especializada.`,
 		keywords: ['ayuda gratis', 'chat legal', 'dudas derecho', 'asesoría', 'servicios abogado']
 	},
+	{
+		category: 'system',
+		subcategory: 'objetivo_chatbot',
+		question: '¿Cuál es el objetivo o función de este chat o chatbot?',
+		prompt: `Este chat está diseñado para brindarte orientación legal gratuita en Huancavelica. Mi función es ayudarte con consultas básicas sobre temas legales y, cuando sea necesario, conectarte con el Dr. Ciro Yarupaitan para una asesoría profesional especializada.`,
+		keywords: [
+			'asistente legal',
+			'orientación gratuita',
+			'consultas básicas',
+			'ayuda jurídica',
+			'asesoría virtual'
+		]
+	},
 	// Contacto y avisos
 	{
 		category: 'contacto',
@@ -39,9 +52,22 @@ const systemPrompts: LegalContext[] = [
 	},
 	{
 		category: 'contacto',
+		subcategory: 'contacto_legal',
+		question: '¿Cómo puedo contactarme con el Dr. Ciro Yarupaitan Peralta?',
+		prompt: `Para contactar al Dr. Ciro Yarupaitan, puedes escribirle al WhatsApp 976762237, enviar un correo a cyarupaitanp@gmail.com, o visitarlo en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes, 8:00 AM a 8:00 PM.`,
+		keywords: [
+			'contacto doctor',
+			'número whatsapp',
+			'correo abogado',
+			'ubicación oficina',
+			'horario atención'
+		]
+	},
+	{
+		category: 'contacto',
 		subcategory: 'whatsapp',
 		question: '¿Peralta Asociados tiene WhatsApp?',
-		prompt: `Sí, puedes contactarnos por WhatsApp al número 976762237 para consultas y agendar citas. Para tu comodidad, haz clic aquí para escribirnos directamente: https://api.whatsapp.com/send?phone=976762237`,
+		prompt: `Sí, puedes contactarnos por WhatsApp al número 976762237 para consultas y agendar citas. Enlace: https://api.whatsapp.com/send?phone=976762237`,
 		keywords: [
 			'whatsapp abogado',
 			'chat directo',
@@ -54,7 +80,7 @@ const systemPrompts: LegalContext[] = [
 		category: 'contacto',
 		subcategory: 'web',
 		question: '¿Peralta Asociados tiene página web?',
-		prompt: `Sí, puedes visitar nuestra página web oficial en www.peraltaasociados.com o hacer clic aquí: https://peraltaasociados.com/. Encontrarás información detallada sobre todos nuestros servicios legales.`,
+		prompt: `Sí, puedes visitar nuestra página web oficial donde encontrarás información detallada sobre todos nuestros servicios legales. Enlace: https://peraltaasociados.com/`,
 		keywords: [
 			'página web',
 			'sitio oficial',
@@ -67,7 +93,7 @@ const systemPrompts: LegalContext[] = [
 		category: 'contacto',
 		subcategory: 'facebook',
 		question: '¿Peralta Asociados tiene página de Facebook?',
-		prompt: `Sí, nos puedes encontrar en Facebook como "PeraltaAsociadosPeru" o hacer clic aquí: https://www.facebook.com/PeraltaAsociadosPeru/. Síguenos para mantenerte informado sobre nuestros servicios y novedades legales.`,
+		prompt: `Sí, nos puedes encontrar en Facebook como "PeraltaAsociadosPeru".Síguenos para mantenerte informado sobre nuestros servicios y novedades legales. Enlance: https://www.facebook.com/PeraltaAsociadosPeru/.`,
 		keywords: [
 			'facebook legal',
 			'redes sociales',
@@ -80,7 +106,7 @@ const systemPrompts: LegalContext[] = [
 		category: 'contacto',
 		subcategory: 'ubicacion',
 		question: '¿Dónde queda la oficina de Peralta Asociados?',
-		prompt: `Nuestra oficina está ubicada en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. Puedes hacer clic en el siguiente enlace para ver exactamente la ubicación de nuestra oficina gracias a google maps: https://www.google.com/maps/search/-12.783507,+-74.969691?entry=tts&g_ep=EgoyMDI1MDEyOS4xIPu8ASoASAFQAw%3D%3D`,
+		prompt: `Nuestra oficina está ubicada en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. Puedes hacer clic en el siguiente enlace para ver exactamente la ubicación de nuestra oficina gracias a google maps. Enlace: https://www.google.com/maps/search/-12.783507,+-74.969691?entry=tts&g_ep=EgoyMDI1MDEyOS4xIPu8ASoASAFQAw%3D%3D`,
 		keywords: [
 			'dirección oficina',
 			'ubicación',
@@ -110,7 +136,7 @@ const technicalInfo: LegalContext[] = [
 		category: 'tecnico',
 		subcategory: 'desarrollador',
 		question: '¿Quién creó este chatbot y dónde puedo ver más de sus proyectos?',
-		prompt: `El creador de este chatbot es Ivan Yarupaitan Rivera, ingeniero de sistemas. Puedes explorar más de sus proyectos visitando su portafolio en https://www.vanchi.pro/`,
+		prompt: `El creador de este chatbot es Ivan Yarupaitan Rivera, ingeniero de sistemas. Puedes explorar más de sus proyectos visitando su portafolio en vanchi.pro. Enlace: https://vanchi.pro/`,
 		keywords: ['desarrollador', 'portafolio', 'proyectos', 'ivan yarupaitan', 'ingeniero sistemas']
 	},
 	{
@@ -150,7 +176,7 @@ const technicalInfo: LegalContext[] = [
 		category: 'tecnico',
 		subcategory: 'contacto_desarrollador',
 		question: '¿Cómo puedo contactar a Ivan Yarupaitan?',
-		prompt: `Puedes contactar a Ivan Yarupaitan a través del formulario de contacto disponible en su página web: https://vanchi.pro/`,
+		prompt: `Puedes contactar a Ivan Yarupaitan a través del formulario de contacto disponible en su página web. Enlace: https://vanchi.pro/. También puedes ver su perfil en LinkedIn para más información. Enlace: https://www.linkedin.com/in/ivan-yarupaitan-rivera/`,
 		keywords: [
 			'contacto desarrollador',
 			'formulario web',
