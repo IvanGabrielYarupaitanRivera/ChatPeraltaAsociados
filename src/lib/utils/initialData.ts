@@ -128,6 +128,150 @@ const systemPrompts: LegalContext[] = [
 			'correo electrónico',
 			'comunicación directa'
 		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'costos',
+		question: '¿Cuánto cuestan los servicios de Peralta Asociados?',
+		prompt: `Los costos de nuestros servicios varían según el tipo y complejidad del caso. Te invitamos a una consulta inicial gratuita donde evaluaremos tu caso y te brindaremos un presupuesto detallado. Ofrecemos planes de pago flexibles para tu comodidad.`,
+		keywords: [
+			'costos servicios',
+			'precios legales',
+			'presupuesto',
+			'planes pago',
+			'tarifas abogado'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'consultas',
+		question: '¿Dan consultas gratuitas?',
+		prompt: `Sí, ofrecemos una primera consulta totalmente gratuita donde evaluamos tu caso y te brindamos una orientación inicial. Durante esta consulta, podremos determinar la mejor estrategia legal para tu situación particular.`,
+		keywords: [
+			'consulta gratis',
+			'asesoría gratuita',
+			'primera cita',
+			'evaluación caso',
+			'orientación legal'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'cobertura',
+		question: '¿Atienden casos fuera de Huancavelica?',
+		prompt: `Aunque nuestra oficina principal está en Huancavelica, podemos atender casos en otras localidades según su naturaleza. Para casos que requieran atención presencial fuera de Huancavelica, evaluaremos la viabilidad durante la consulta inicial.`,
+		keywords: [
+			'cobertura legal',
+			'atención regional',
+			'casos externos',
+			'servicios fuera',
+			'otras localidades'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'horario',
+		question: '¿Cuál es el horario de atención para consultas?',
+		prompt: `Atendemos consultas de lunes a viernes de 8:00 AM a 8:00 PM en nuestra oficina. Para consultas por WhatsApp, también puedes escribirnos en ese horario al 976762237 y te responderemos a la brevedad posible.`,
+		keywords: [
+			'horario atención',
+			'consultas legales',
+			'disponibilidad',
+			'horas oficina',
+			'atención cliente'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'tiempo_casos',
+		question: '¿Cuánto tiempo toma resolver un caso típico?',
+		prompt: `El tiempo de resolución varía según la complejidad y tipo de caso. Durante la consulta inicial evaluaremos tu situación específica y te daremos un estimado realista del tiempo que podría tomar. Nos comprometemos a gestionar tu caso con la mayor diligencia posible.`,
+		keywords: [
+			'tiempo resolución',
+			'duración proceso',
+			'plazos legales',
+			'gestión casos',
+			'estimación tiempo'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'documentos',
+		question: '¿Qué documentos necesito para una consulta inicial?',
+		prompt: `Para la primera consulta, es recomendable traer tu DNI y cualquier documento relacionado con tu caso (contratos, notificaciones, denuncias, etc.). Esto nos permitirá evaluar mejor tu situación y brindarte una orientación más precisa.`,
+		keywords: [
+			'documentos necesarios',
+			'requisitos consulta',
+			'papeles legales',
+			'primera cita',
+			'documentación'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'experiencia',
+		question: '¿Tienen experiencia con casos similares al mío?',
+		prompt: `Sí, contamos con más de 17 años de experiencia manejando diversos casos legales. Durante la consulta inicial, el Dr. Ciro Yarupaitan evaluará tu situación específica y te compartirá casos similares que hemos resuelto exitosamente, manteniendo siempre la confidencialidad de nuestros clientes.`,
+		keywords: [
+			'experiencia legal',
+			'casos exitosos',
+			'trayectoria',
+			'antecedentes',
+			'historial casos'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'resultados',
+		question: '¿Qué pasa si pierdo mi caso?',
+		prompt: `En caso de un resultado desfavorable, evaluaremos todas las opciones legales disponibles, incluyendo la posibilidad de apelación. Nuestro compromiso es defender tus derechos hasta agotar todas las instancias legales permitidas, siempre manteniéndote informado de cada paso.`,
+		keywords: [
+			'resultado negativo',
+			'opciones legales',
+			'apelación',
+			'defensa derechos',
+			'proceso legal'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'citas',
+		question: '¿Cómo programo una cita con el Dr. Ciro o con Peralta Asociados?',
+		prompt: `Puedes programar una cita llamando o escribiendo al WhatsApp 976762237, enviando un correo a cyarupaitanp@gmail.com, o visitando nuestra oficina en Jr. Mayta Cápac 215, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM.`,
+		keywords: [
+			'agendar cita',
+			'consulta legal',
+			'reservar horario',
+			'primera visita',
+			'programación'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'sucursales',
+		question: '¿Tienen sucursales en otras ciudades?',
+		prompt: `Actualmente nuestra única oficina se encuentra en Huancavelica, en Jr. Mayta Cápac 215, Barrio San Cristóbal. Sin embargo, podemos atender casos de otras localidades evaluando cada situación particular durante la consulta inicial.`,
+		keywords: ['sucursales', 'otras sedes', 'oficinas', 'cobertura regional', 'atención local']
+	},
+	{
+		category: 'servicios',
+		subcategory: 'pagos',
+		question: '¿Qué métodos de pago aceptan?',
+		prompt: `Aceptamos diversos métodos de pago para tu comodidad, incluyendo efectivo, transferencias bancarias y pagos por aplicaciones móviles (Yape). Durante la consulta inicial, discutiremos las opciones de pago y planes flexibles disponibles para tu caso.`,
+		keywords: ['métodos pago', 'formas pago', 'transferencias', 'efectivo', 'facilidades pago']
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'privacidad',
+		question: '¿El chatbot guarda mi información personal?',
+		prompt: `Este chatbot no almacena información personal ni el historial de conversaciones. Todas las consultas son confidenciales y se procesan de forma anónima. Para una asesoría personalizada, te recomendamos contactar directamente con nuestro estudio.`,
+		keywords: [
+			'privacidad',
+			'confidencialidad',
+			'datos personales',
+			'seguridad chat',
+			'información personal'
+		]
 	}
 ];
 
@@ -184,6 +328,144 @@ const technicalInfo: LegalContext[] = [
 			'página personal',
 			'comunicación'
 		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'mantenimiento',
+		question: '¿Quién mantiene actualizado el chatbot?',
+		prompt: `El chatbot es mantenido y actualizado regularmente por Ivan Yarupaitan Rivera, garantizando que la información legal esté al día y que el sistema funcione correctamente. Las actualizaciones se realizan según los cambios en la legislación y las necesidades del estudio.`,
+		keywords: [
+			'actualización sistema',
+			'mantenimiento bot',
+			'información vigente',
+			'soporte técnico',
+			'funcionamiento chat'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'precision',
+		question: '¿Cómo se aseguran que las respuestas sean precisas?',
+		prompt: `Las respuestas del chatbot se basan en información legal verificada por el Dr. Ciro Yarupaitan y son actualizadas regularmente. El sistema utiliza tecnología de búsqueda semántica para encontrar la información más relevante y precisa para cada consulta.`,
+		keywords: [
+			'precisión legal',
+			'información verificada',
+			'respuestas exactas',
+			'búsqueda semántica',
+			'validación datos'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'disponibilidad',
+		question: '¿Este chat funciona las 24 horas?',
+		prompt: `Sí, el chatbot está disponible 24/7 para consultas básicas. Sin embargo, para asesorías personalizadas, respetamos el horario de atención del estudio: lunes a viernes de 8:00 AM a 8:00 PM.`,
+		keywords: [
+			'disponibilidad',
+			'horario chat',
+			'atención continua',
+			'servicio 24/7',
+			'acceso permanente'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'accesibilidad',
+		question: '¿Puedo usar este chat desde mi celular?',
+		prompt: `Sí, el chat está optimizado para funcionar en cualquier dispositivo, ya sea celular, tablet o computadora. Su diseño responsivo garantiza una experiencia fluida sin importar el tamaño de pantalla que uses.`,
+		keywords: ['versión móvil', 'responsive', 'multiplataforma', 'acceso móvil', 'compatibilidad']
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'idiomas',
+		question: '¿El chat puede atender en otros idiomas?',
+		prompt: `Actualmente, el chatbot solo atiende consultas en español para garantizar la precisión de las respuestas legales en el contexto peruano. Esto nos permite brindar una mejor orientación a nuestros usuarios de Huancavelica.`,
+		keywords: [
+			'idioma español',
+			'lengua atención',
+			'comunicación',
+			'servicio español',
+			'atención idiomas'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'seguridad',
+		question: '¿Qué tan seguras son las conversaciones en este chat?',
+		prompt: `Las conversaciones son completamente seguras y anónimas. No guardamos información personal ni historial de consultas. Todo se procesa de forma confidencial y se elimina al cerrar el navegador o al hacer clic en "Nueva conversación".`,
+		keywords: ['seguridad chat', 'privacidad', 'confidencialidad', 'protección datos', 'anonimato']
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'errores',
+		question: '¿Cómo reporto un error en el chatbot?',
+		prompt: `Si encuentras algún error en el chatbot, puedes reportarlo enviando un mensaje al WhatsApp 976762237 o al correo cyarupaitanp@gmail.com, describiendo el problema encontrado. Tu feedback nos ayuda a mejorar el servicio.`,
+		keywords: [
+			'reportar error',
+			'problemas técnicos',
+			'feedback',
+			'soporte chat',
+			'mejoras sistema'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'actualizacion',
+		question: '¿Las respuestas del chat están actualizadas con las leyes vigentes?',
+		prompt: `Sí, el contenido legal del chatbot se actualiza regularmente según los cambios en la legislación peruana. El Dr. Ciro Yarupaitan supervisa la información para garantizar que las respuestas estén alineadas con las leyes vigentes.`,
+		keywords: [
+			'leyes vigentes',
+			'actualización legal',
+			'normativa actual',
+			'información vigente',
+			'contenido legal'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'ventajas',
+		question: '¿Qué ventajas tiene usar este chat versus llamar directamente?',
+		prompt: `El chat está disponible 24/7, te da respuestas inmediatas y puedes consultarlo desde cualquier dispositivo. Además, es gratuito y te ayuda a tener una idea inicial de tu caso antes de contactar al abogado, ahorrándote tiempo.`,
+		keywords: [
+			'disponibilidad',
+			'respuesta inmediata',
+			'acceso fácil',
+			'servicio gratuito',
+			'orientación inicial'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'tiempo_respuesta',
+		question: '¿Cuánto tiempo toma normalmente obtener una respuesta?',
+		prompt: `Las respuestas del chatbot son instantáneas. El sistema procesa tu consulta y te brinda información relevante en segundos, permitiéndote obtener orientación legal básica de manera inmediata.`,
+		keywords: [
+			'respuesta rápida',
+			'tiempo espera',
+			'instantáneo',
+			'velocidad chat',
+			'atención inmediata'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'memoria',
+		question: '¿El chat puede recordar conversaciones anteriores?',
+		prompt: `No, por razones de privacidad, el chat no guarda el historial de conversaciones. Cada vez que inicias una nueva consulta o cierras el navegador, la conversación anterior se elimina completamente.`,
+		keywords: [
+			'historial chat',
+			'memoria conversación',
+			'privacidad',
+			'nueva consulta',
+			'datos temporales'
+		]
+	},
+	{
+		category: 'tecnico',
+		subcategory: 'feedback',
+		question: '¿Cómo puedo dar feedback sobre el servicio del chatbot?',
+		prompt: `Puedes enviar tus comentarios y sugerencias sobre el chatbot al WhatsApp 976762237 o al correo cyarupaitanp@gmail.com. Tu feedback nos ayuda a mejorar constantemente el servicio.`,
+		keywords: ['comentarios', 'sugerencias', 'mejoras', 'opinión usuario', 'retroalimentación']
 	}
 ];
 
