@@ -60,7 +60,7 @@ export const actions = {
 			const historial = `Historial de la conversación: ${singleHistorial}`.trim();
 
 			const instrucciones =
-				'Instrucciones: Puedes usar como máximo 150 palabras, mantén un tono empático y si el caso es complejo, sugiere al usuario contactar a Peralta Asociados. Nunca inventes información ni enlaces que no estén en la base de datos de Peralta Asociados, por favor, con los enlaces ten cuidado, no inventes nada. Si no encuentras información relevante en la base de datos, simplemente dilo. Pregunta siempre más detalles para comprender mejor la consulta y brindar orientación adecuada. Utiliza obligatoriamente la etiqueta <a class="text-secondary" href="[Enlace]" target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a> para enlaces.';
+				'Instrucciones: Puedes usar como máximo 150 palabras, mantén un tono empático y si el caso es complejo, sugiere al usuario contactar a Peralta Asociados. Nunca inventes información ni enlaces que no estén en la base de datos de Peralta Asociados, por favor, con los enlaces ten cuidado, no inventes nada. Si no encuentras información relevante en la base de datos, simplemente dilo. La página web de Peralta Asociados es: https://peraltaasociados.com/. Pregunta siempre más detalles para comprender mejor la consulta y brindar orientación adecuada. Utiliza obligatoriamente la etiqueta <a class="text-secondary" href="[Enlace]" target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a> para enlaces.';
 			const contexto = contexts
 				.map(
 					(c) =>
