@@ -385,6 +385,46 @@ const technicalInfo: LegalContext[] = [
 		]
 	},
 	{
+		category: 'tecnologia',
+		subcategory: 'desarrollo',
+		question: '¿Qué tecnologías se usaron para desarrollar este chat?',
+		prompt:
+			'Este chat fue desarrollado utilizando SvelteKit como framework principal, Tailwind CSS para los estilos, OpenRouter para el modelo de lenguaje y Netlify para el despliegue.',
+		keywords: ['tecnologías', 'desarrollo', 'framework', 'chat', 'stack']
+	},
+	{
+		category: 'tecnologia',
+		subcategory: 'desarrollo',
+		question: '¿Con qué herramientas fue construido este chat?',
+		prompt:
+			'Este chat fue construido con Svelte 5 y SvelteKit como base, utilizando Tailwind CSS para el diseño visual, OpenRouter como modelo de IA y Netlify para su publicación en línea.',
+		keywords: ['herramientas', 'construcción', 'desarrollo', 'implementación', 'tecnología']
+	},
+	{
+		category: 'tecnologia',
+		subcategory: 'desarrollo',
+		question: '¿Qué framework o bibliotecas utiliza este chat?',
+		prompt:
+			'Este chat utiliza el framework SvelteKit junto con la biblioteca Tailwind CSS para los estilos. También implementa OpenRouter para el procesamiento de lenguaje natural.',
+		keywords: ['framework', 'bibliotecas', 'desarrollo', 'software', 'tecnología']
+	},
+	{
+		category: 'tecnologia',
+		subcategory: 'desarrollo',
+		question: '¿Cómo fue desarrollado este asistente virtual?',
+		prompt:
+			'Este asistente virtual fue desarrollado utilizando tecnologías modernas como SvelteKit para la estructura, Tailwind CSS para el diseño y OpenRouter para el procesamiento de consultas.',
+		keywords: ['desarrollo', 'asistente', 'virtual', 'implementación', 'tecnología']
+	},
+	{
+		category: 'tecnologia',
+		subcategory: 'desarrollo',
+		question: '¿Qué stack tecnológico se implementó en este chat?',
+		prompt:
+			'El stack tecnológico implementado incluye SvelteKit como framework principal, Tailwind CSS para estilos, OpenRouter para IA y Netlify para el hosting.',
+		keywords: ['stack', 'tecnológico', 'implementación', 'desarrollo', 'tecnología']
+	},
+	{
 		category: 'tecnico',
 		subcategory: 'tecnologias_backend',
 		question: '¿Qué es Supabase Vector?',
