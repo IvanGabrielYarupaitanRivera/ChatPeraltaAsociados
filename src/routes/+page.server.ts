@@ -60,9 +60,12 @@ export const actions = {
 			const historial = `Historial de la conversación: ${singleHistorial}`.trim();
 
 			const instrucciones =
-				'Formato de tu respuesta: Obligatorio nunca usar asteriscos, solo puedes usar puntos finales y puntos seguidos para terminar oraciones. Puedes usar dos puntos (:) y comas (,). Mantener tono cercano y si el caso es complejo, recomendar contacto con el Dr. Ciro Yarupaitan. Importante, siempre debes colocar los enlaces con una etiqueta <a class="underline text-secondary" href="[Enlace]" target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a>';
+				'Instrucciones: Mantén un tono empático y si el caso es complejo, sugiere al usuario contactar a Peralta Asociados. No inventes información ni enlaces que no estén en la base de datos de Peralta Asociados. Pregunta siempre más detalles para comprender mejor la consulta y brindar orientación adecuada. Utiliza obligatoriamente la etiqueta <a class="underline text-secondary" href="[Enlace]" target="_blank" rel="noopener noreferrer">[Texto descriptivo de Enlace]</a> para enlaces.';
 			const contexto = contexts
-				.map((c) => `${c.question}. ${c.prompt.substring(0, 500).trim()}`)
+				.map(
+					(c) =>
+						`Información de la base de datos de Peralta Asociados: ${c.question}. ${c.prompt.substring(0, 500).trim()}`
+				)
 				.join(' ')
 				.replace(/\s+/g, ' ')
 				.trim();

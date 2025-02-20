@@ -118,6 +118,48 @@ const systemPrompts: LegalContext[] = [
 	},
 	{
 		category: 'contacto',
+		subcategory: 'ubicacion',
+		question: '¿En qué lugar exacto se ubica la oficina de Peralta Asociados?',
+		prompt: `Nuestra oficina está ubicada en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. Puedes hacer clic en el siguiente enlace para ver exactamente la ubicación de nuestra oficina gracias a google maps. Enlace: https://www.google.com/maps/search/-12.783507,+-74.969691?entry=tts&g_ep=EgoyMDI1MDEyOS4xIPu8ASoASAFQAw%3D%3D`,
+		keywords: [
+			'dirección oficina',
+			'ubicación',
+			'horario atención',
+			'consulta presencial',
+			'google maps',
+			'mapa'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'ubicacion',
+		question: '¿Cuál es la dirección donde está Peralta Asociados?',
+		prompt: `Nuestra oficina está ubicada en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. Puedes hacer clic en el siguiente enlace para ver exactamente la ubicación de nuestra oficina gracias a google maps. Enlace: https://www.google.com/maps/search/-12.783507,+-74.969691?entry=tts&g_ep=EgoyMDI1MDEyOS4xIPu8ASoASAFQAw%3D%3D`,
+		keywords: [
+			'dirección oficina',
+			'ubicación',
+			'horario atención',
+			'consulta presencial',
+			'google maps',
+			'mapa'
+		]
+	},
+	{
+		category: 'contacto',
+		subcategory: 'ubicacion',
+		question: '¿Me podrías indicar la localización de la oficina principal de Peralta Asociados?',
+		prompt: `Nuestra oficina está ubicada en Jr. Mayta Cápac 215, Barrio San Cristóbal, Huancavelica. Atendemos de lunes a viernes de 8:00 AM a 8:00 PM. Puedes hacer clic en el siguiente enlace para ver exactamente la ubicación de nuestra oficina gracias a google maps. Enlace: https://www.google.com/maps/search/-12.783507,+-74.969691?entry=tts&g_ep=EgoyMDI1MDEyOS4xIPu8ASoASAFQAw%3D%3D`,
+		keywords: [
+			'dirección oficina',
+			'ubicación',
+			'horario atención',
+			'consulta presencial',
+			'google maps',
+			'mapa'
+		]
+	},
+	{
+		category: 'contacto',
 		subcategory: 'telefono',
 		question: '¿A qué número puedo llamar o escribir para contactarlos?',
 		prompt: `Puedes contactarnos al número 976762237 para llamadas o WhatsApp. También atendemos consultas por correo electrónico en cyarupaitanp@gmail.com`,
@@ -127,6 +169,32 @@ const systemPrompts: LegalContext[] = [
 			'whatsapp legal',
 			'correo electrónico',
 			'comunicación directa'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'consultas',
+		question: '¿Cómo puedo agendar una consulta presencial?',
+		prompt: `Para programar una consulta presencial, puedes contactarnos al 976762237 por llamada o WhatsApp. La primera consulta es gratuita y evaluaremos tu caso detalladamente.`,
+		keywords: [
+			'consulta presencial',
+			'cita personal',
+			'reunión abogado',
+			'visita oficina',
+			'atención directa'
+		]
+	},
+	{
+		category: 'servicios',
+		subcategory: 'consultas',
+		question: '¿En qué horario atienden las consultas presenciales?',
+		prompt: `Atendemos consultas presenciales de lunes a viernes en horario de oficina. Te recomendamos agendar una cita previamente llamando al 976762237 para asegurar nuestra disponibilidad.`,
+		keywords: [
+			'horario atención',
+			'horario consultas',
+			'citas disponibles',
+			'atención presencial',
+			'agenda consultas'
 		]
 	},
 	{
