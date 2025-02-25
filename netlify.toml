@@ -6,5 +6,9 @@
   SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
   NPM_FLAGS = "--platform=linux --arch=x64"
 
+[functions]
+  included_files = ["src/**"]
+  node_bundler = "esbuild"
+
 [functions."*"]
   timeout = 30

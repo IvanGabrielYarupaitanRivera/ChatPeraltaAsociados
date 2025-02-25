@@ -673,6 +673,76 @@ const ciroInfo: LegalContext[] = [
 	},
 	{
 		category: 'info_personal',
+		subcategory: 'contacto',
+		question: '¿Cómo puedo contactar al Dr. Ciro Yarupaitan?',
+		prompt:
+			'El Dr. Ciro Yarupaitan puede ser contactado a través del número telefónico 976762237 o visitando su oficina ubicada en Jr. Mayta Cápac 215, Huancavelica. También puede agendar una cita a través de la página web de Peralta Asociados.',
+		keywords: ['contacto', 'teléfono', 'dirección', 'cita', 'oficina']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'especialidad',
+		question: '¿Cuál es la especialidad del Dr. Ciro Yarupaitan?',
+		prompt:
+			'El Dr. Ciro Yarupaitan es especialista en Derecho Administrativo, Civil, Laboral y Constitucional. Tiene particular experiencia en procedimientos disciplinarios, prescripción adquisitiva, pensión alimenticia, reincorporación laboral y acciones constitucionales.',
+		keywords: [
+			'especialidad',
+			'área legal',
+			'derecho administrativo',
+			'derecho civil',
+			'constitucional'
+		]
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'horario',
+		question: '¿Cuál es el horario de atención del Dr. Ciro Yarupaitan?',
+		prompt:
+			'El Dr. Ciro Yarupaitan atiende de lunes a viernes de 8:00 AM a 8:00 PM en su oficina de Peralta Asociados ubicada en Jr. Mayta Cápac 215, Huancavelica. Para casos urgentes, también ofrece asesorías previa cita durante los fines de semana.',
+		keywords: ['horario', 'atención', 'días', 'horas', 'disponibilidad']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'logros',
+		question: '¿Cuáles son los principales logros profesionales del Dr. Ciro Yarupaitan?',
+		prompt:
+			'Entre los principales logros del Dr. Ciro Yarupaitan destacan su desempeño como Juez de Paz Letrado Supernumerario en 2015, la resolución exitosa de más de 500 casos de derecho administrativo y civil, y su reconocimiento por el Colegio de Abogados de Huancavelica por su contribución a la defensa de derechos fundamentales.',
+		keywords: ['logros', 'reconocimientos', 'casos exitosos', 'juez', 'trayectoria']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'tarifas',
+		question: '¿Cuánto cobra el Dr. Ciro Yarupaitan por una consulta?',
+		prompt:
+			'El Dr. Ciro Yarupaitan ofrece una primera consulta gratuita para evaluar cada caso. Las tarifas posteriores varían según la complejidad del asunto legal, con planes accesibles que se ajustan a las necesidades económicas de los clientes de Huancavelica. Para presupuestos específicos, es recomendable contactarlo directamente.',
+		keywords: ['tarifas', 'honorarios', 'costos', 'consulta gratuita', 'precios']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'perfil',
+		question: '¿Quién es el Dr. Ciro?',
+		prompt:
+			'El Dr. Ciro Yarupaitan Peralta es el fundador y abogado principal de Peralta Asociados en Huancavelica. Es un profesional especializado en derecho administrativo, civil, laboral y constitucional, comprometido con la defensa de los derechos de sus clientes. Su práctica se enfoca principalmente en procedimientos disciplinarios, asuntos de pensión alimenticia y acciones constitucionales.',
+		keywords: ['Dr. Ciro', 'Yarupaitan', 'abogado', 'fundador', 'Peralta Asociados']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'experiencia',
+		question: '¿Cuántos años de experiencia tiene el Dr. Ciro?',
+		prompt:
+			'El Dr. Ciro Yarupaitan cuenta con más de 15 años de experiencia en el ámbito legal. Desde su graduación en 2007 de la Universidad Católica Los Ángeles de Chimbote, ha ejercido como abogado litigante, asesor legal y también se desempeñó como Juez de Paz Letrado Supernumerario en 2015. Su amplia trayectoria respalda su expertise en las diferentes ramas del derecho.',
+		keywords: ['años experiencia', 'trayectoria', 'carrera', 'ejercicio profesional', 'antigüedad']
+	},
+	{
+		category: 'info_personal',
+		subcategory: 'general',
+		question: '¿Qué me puedes decir sobre el Dr. Ciro?',
+		prompt:
+			'El Dr. Ciro Yarupaitan Peralta es un abogado que reside en Huancavelica con más de 15 años de experiencia. Es fundador de Peralta Asociados, donde se especializa en derecho administrativo, civil, laboral y constitucional. Se destaca por su compromiso con la comunidad, ofreciendo consultas iniciales gratuitas y adaptando sus servicios a las necesidades económicas de la población de Huancavelica.',
+		keywords: ['biografía', 'información', 'perfil profesional', 'Dr. Ciro', 'descripción']
+	},
+	{
+		category: 'info_personal',
 		subcategory: 'experiencia',
 		question: '¿Cuántos años de experiencia tiene el Dr. Ciro Yarupaitan?',
 		prompt: `El Dr. Ciro Yarupaitan cuenta con 17 años de experiencia como abogado y 35 años de trayectoria en el sector público. En 2015, se desempeñó como Juez de Paz Letrado Supernumerario, demostrando su amplia experiencia en el campo legal.`,
