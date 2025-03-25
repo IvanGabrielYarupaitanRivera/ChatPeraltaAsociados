@@ -20,7 +20,7 @@ export async function getOpenRouterResponse(history: ChatMessage[] = []): Promis
 					'X-Title': 'Asistente Legal Inteligente de Peralta Asociados'
 				},
 				body: JSON.stringify({
-					model: 'meta-llama/llama-3.3-70b-instruct:free',
+					model: 'qwen/qwq-32b:free',
 					messages,
 					stream: false,
 					temperature: 0.7,
@@ -35,6 +35,7 @@ export async function getOpenRouterResponse(history: ChatMessage[] = []): Promis
 			if (!response.ok) throw new Error(`Error API: ${response.status}`);
 
 			const data = await response.json();
+			console.log(data);
 
 			return (
 				data.choices?.[0]?.message?.content?.trim() ||
