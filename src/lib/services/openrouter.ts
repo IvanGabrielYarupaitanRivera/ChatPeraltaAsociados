@@ -20,7 +20,7 @@ export async function getOpenRouterResponse(history: ChatMessage[] = []): Promis
 					'X-Title': 'Asistente Legal Inteligente de Peralta Asociados'
 				},
 				body: JSON.stringify({
-					model: 'qwen/qwq-32b:free',
+					model: 'qwen/qwen-2.5-72b-instruct:free',
 					messages,
 					stream: false,
 					temperature: 0.7,
